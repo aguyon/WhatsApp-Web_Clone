@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import StyledRightImg from '../elements/StyledRightImg';
 
 interface RightImgProps {
   messageText: string;
   right?: boolean;
-  children?: JSX.Element;
+  children?: ReactNode;
 }
 
 const RightImg = (props: RightImgProps): JSX.Element => {

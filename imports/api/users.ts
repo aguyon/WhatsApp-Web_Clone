@@ -106,6 +106,17 @@ export const dummyUsers: User[] = [
   },
 ];
 
+if (Meteor.isServer) {
+  Meteor.publish('users.all', function () {
+    return Meteor.users.find(
+      {},
+      {
+        fields: { services: 0 },
+      }
+    );
+  });
+}
+
 Meteor.methods({
   'user.login': function ({ username, phone, password }) {
     let userExist: boolean;

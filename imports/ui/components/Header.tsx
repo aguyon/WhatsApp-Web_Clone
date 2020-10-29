@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import StyledHeader from '../elements/StyledHeader';
 
-const Header = (props: any): JSX.Element => {
+interface HeaderProps {
+  children: ReactNode;
+  icons: { icon: string }[];
+  iconClass: string;
+  iconsSmallWidth?: boolean;
+}
+
+const Header = (props: HeaderProps): JSX.Element => {
   const { icons, iconClass } = props;
 
   const renderIcons = (): JSX.Element[] => {
-    return icons.map((icon: any, index: number) => {
-      return <FontAwesomeIcon key={index} icon={icon} className={iconClass} />;
+    return icons.map((item: any, index: number) => {
+      return (
+        <FontAwesomeIcon key={index} icon={['fas', item.icon]} className={iconClass} />
+      );
     });
   };
 
   return (
     <StyledHeader>
-      <div className={props.iconsWidthSmall ? 'icons--left small' : 'icons--left'}>
+      {props.children}
+      <div className={props.iconsSmallWidth ? 'icons--left small' : 'icons--left'}>
         {renderIcons()}
       </div>
     </StyledHeader>

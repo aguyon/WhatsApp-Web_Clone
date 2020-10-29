@@ -6,6 +6,7 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "types": ["node"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitAny": false
   }
 }
