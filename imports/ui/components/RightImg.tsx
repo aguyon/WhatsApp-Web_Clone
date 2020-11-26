@@ -10,7 +10,6 @@ interface RightImgProps {
 }
 
 const RightImg: React.FC<RightImgProps> = (props): JSX.Element => {
-  console.log(props.theme);
   return (
     <StyledRightImg right={props.right}>
       <StyledContent>

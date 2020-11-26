@@ -7,6 +7,7 @@ import StyledModal from '../elements/StyledModal';
 interface ModalProps {
   selectedImage: string;
   onClose: () => void;
+  onUpload: (file: any) => void;
 }
 
 const Modal = (props: ModalProps) => {
@@ -32,7 +33,7 @@ const Modal = (props: ModalProps) => {
       </div>
       <div className="modal--body">
         {ResponsiveImage(props.selectedImage, 529, 550)}
-        <div className="modal--body__fab">
+        <div className="modal--body__fab" onClick={props.onUpload}>
           <FontAwesomeIcon icon={faPaperPlane} size="3x" />
         </div>
       </div>
@@ -40,7 +41,7 @@ const Modal = (props: ModalProps) => {
         <div className="modal--footer__box">
           <img
             style={{ width: '100%', height: '100%' }}
-            alt="img"
+            alt="uploaded img"
             src={props.selectedImage}
           />
         </div>

@@ -24,3 +24,4 @@ react-meteor-data           # React higher-order component for reactively tracki
 fourseven:scss
 barbatus:typescript
 server-render
+ostrio:files

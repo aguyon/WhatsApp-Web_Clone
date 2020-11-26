@@ -6,6 +6,7 @@ import 'moment/locale/fr';
 
 import { Chat, Message, MessageType } from '../../api/models';
 import { MessagesCollection } from '../../api/messages';
+import { uploadFile } from '../../api/helpers';
 
 import StyledMessageView from '../elements/StyledMessageView';
 
@@ -26,7 +27,7 @@ interface MessageViewProps {
 const MessageView = (props: MessageViewProps): JSX.Element => {
   const [fabsVisible, setFabsVisible] = React.useState<boolean>(false);
   const [modalVisible, setModalVisible] = React.useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = React.useState('');
+  const [selectedImage, setSelectedImage] = React.useState<any>('');
 
   const icons: { icon: string; onClick?: () => void }[] = [
     { icon: 'search' },
@@ -89,7 +90,11 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
         </div>
       </Header>
       {modalVisible ? (
-        <Modal selectedImage={selectedImage} onClose={handleCloseModal} />
+        <Modal
+          selectedImage={selectedImage}
+          onClose={handleCloseModal}
+          onUpload={() => uploadFile(fileInput)}
+        />
       ) : (
         <React.Fragment>
           <MessageBox
