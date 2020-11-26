@@ -2,8 +2,17 @@ import React from 'react';
 
 import StyledLoginForm from '../elements/StyledLoginForm';
 
-const LoginForm = (props: any): JSX.Element => {
-  const [state, setState] = React.useState<any>({
+interface LoginProps {
+  onLogin: (state: LoginState) => void;
+}
+interface LoginState {
+  username: string;
+  phone: string;
+  password: string;
+}
+
+const LoginForm = (props: LoginProps): JSX.Element => {
+  const [state, setState] = React.useState<LoginState>({
     username: '',
     phone: '',
     password: '',

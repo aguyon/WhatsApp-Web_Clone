@@ -1,4 +1,10 @@
-const NormalTheme: object = {
+const LightTheme: object = {
+  main: {
+    color: {
+      header: '#009688',
+      background: '#D9DBD5',
+    },
+  },
   header: {
     color: {
       iconGrey: '#929fa6',
@@ -22,13 +28,14 @@ const NormalTheme: object = {
   },
   chatItem: {
     color: {
-      bgGreen: '#09D261',
+      bgGreen: '#06D755',
       message: 'rgba(0,0,0,0.6)',
       badge: 'white',
+      title: 'black',
       date: 'rgba(0,0,0,0.4)',
       backgroundActive: '#f4f5f5',
       backgroundNormal: 'white',
-      borderBottom: '#f2f2f2',
+      borderBottom: '#E5E5E6',
     },
   },
   searchBar: {
@@ -36,8 +43,9 @@ const NormalTheme: object = {
       background: '#F8F8F8',
       labelBackground: 'white',
       icon: 'rgba(0,0,0,0.3)',
-      input: '#2A2A2A',
+      input: 'black',
       placeholder: 'rgba(0,0,0,0.3)',
+      inputBackground: 'white',
     },
   },
   footer: {
@@ -51,8 +59,8 @@ const NormalTheme: object = {
   },
   messageBox: {
     color: {
-      dayWrapper: 'rgba(225,245,254,.92)',
-      dayspan: '#60747D',
+      dayWrapper: '#E1F3FB',
+      dayspan: '#414547',
       message: '#262626',
       messageBackground: '#fff',
       detailsContainer: 'rgba(0,0,0,0.45)',
@@ -61,8 +69,8 @@ const NormalTheme: object = {
   },
   rightImg: {
     color: {
-      darkGrey: '#4b5961',
-      mediumGrey: '#929fa6',
+      darkGrey: '#525252',
+      mediumGrey: '#888989',
       lightGrey: '#e1e9eb',
       bgGrey: '#f7f9fa',
       bgGreen: '#09D261',
@@ -71,7 +79,7 @@ const NormalTheme: object = {
   },
   left: {
     color: {
-      borderRight: 'rgba(0,0,0,0.2)',
+      borderRight: '#E5E5E6',
     },
   },
   avatar: {
@@ -84,6 +92,20 @@ const NormalTheme: object = {
       green: '#09D261',
     },
   },
+  modal: {
+    color: {
+      header: '#00BFA5',
+      body: {
+        background: '#e6e6e6',
+        fab: '#09e85e',
+      },
+      footer: {
+        background: '#d9d9d9',
+        addBtn: '#3fbbf7',
+        addBtnBg: 'white',
+      },
+    },
+  },
 };
 
-export default NormalTheme;
+export default LightTheme;

@@ -4,14 +4,14 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import StyledSearchBar from '../elements/StyledSearchBar';
 
-const SearchBar = (props: any): JSX.Element => {
+const SearchBar: React.FC = (props): JSX.Element => {
   return (
     <StyledSearchBar>
       <label className="searchbar--label">
         <FontAwesomeIcon icon={faSearch} className="searchbar--icon" />
         <input
           className="searchbar--input"
-          placeholder="Rechercher ou Démarrer une discussion"
+          placeholder="Rechercher ou démarrer une nouvelle discussion"
         />
       </label>
     </StyledSearchBar>

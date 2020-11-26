@@ -13,25 +13,29 @@ import { Chat } from '../../api/models';
 
 interface MainLeftProps {
   chats: Chat[];
+  onChatClick: () => void;
+  selectedChat: Chat;
 }
 
 const MainLeft = (props: MainLeftProps): JSX.Element => {
-  const { chats } = props;
+  const icons: { icon: string }[] = [
+    { icon: 'circle-notch' },
+    { icon: 'comment-alt' },
+    { icon: 'ellipsis-v' },
+  ];
+
   return (
     <StyledMainLeft>
-      <Header
-        icons={[
-          { icon: 'circle-notch' },
-          { icon: 'comment-alt' },
-          { icon: 'ellipsis-v' },
-        ]}
-        iconClass="greyIcon"
-      >
+      <Header icons={icons} iconClass="greyIcon">
         <Avatar avatar_url={Meteor.user().profile.picture} />
       </Header>
       <Status />
       <SearchBar />
-      <ChatList chats={chats} />
+      <ChatList
+        chats={props.chats}
+        onChatClick={props.onChatClick}
+        selectedChat={props.selectedChat}
+      />
     </StyledMainLeft>
   );
 };

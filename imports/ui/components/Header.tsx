@@ -5,18 +5,23 @@ import StyledHeader from '../elements/StyledHeader';
 
 interface HeaderProps {
   children: ReactNode;
-  icons: { icon: string }[];
+  icons: { icon: string; onClick?: () => void }[];
   iconClass: string;
   iconsSmallWidth?: boolean;
 }
 
-const Header = (props: HeaderProps): JSX.Element => {
+const Header: React.FC<HeaderProps> = (props): JSX.Element => {
   const { icons, iconClass } = props;
 
   const renderIcons = (): JSX.Element[] => {
     return icons.map((item: any, index: number) => {
       return (
-        <FontAwesomeIcon key={index} icon={['fas', item.icon]} className={iconClass} />
+        <FontAwesomeIcon
+          key={index}
+          icon={['fas', item.icon]}
+          className={iconClass}
+          onClick={item.onClick}
+        />
       );
     });
   };

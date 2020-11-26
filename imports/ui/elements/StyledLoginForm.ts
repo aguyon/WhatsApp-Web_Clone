@@ -14,11 +14,13 @@ const StyledLoginForm = styled.div`
     justify-content: space-between;
     margin-bottom: 0.3rem;
   }
+
   .icon {
     color: ${({ theme }) => theme.searchBar.color.icon};
     font-size: 1.3rem;
     margin-right: 1.5rem;
   }
+
   .input {
     font-size: 1.5rem;
     font-weight: 400;
@@ -35,7 +37,14 @@ const StyledLoginForm = styled.div`
       opacity: 1;
       font-size: 1.4rem;
     }
+    background: ${({ theme }) => theme.searchBar.color.inputBackground};
+
+    &:-webkit-autofill {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: ${({ theme }) => theme.searchBar.color.input} !important;
+    }
   }
+
   .loginBtn {
     width: 22.7rem;
     border-radius: 0.7rem;
@@ -43,21 +52,20 @@ const StyledLoginForm = styled.div`
     height: 3.5rem;
     font-size: 1.4rem;
     font-weight: bold;
-    background: ${({ theme }) => theme.rightImg.color.bgGreen};
+    background: ${({ theme }) => theme.rightImg.color.darkGreen};
     color: white;
     margin-top: 0.3rem;
     outline: none;
     cursor: pointer;
     text-transform: uppercase;
-    &:hover {
-      background: ${({ theme }) => theme.rightImg.color.darkGreen};
-    }
+
     &:active {
       outline: none;
     }
+
     &:disabled,
     &[disabled] {
-      background-color: ${({ theme }) => theme.searchBar.color.input};
+      background-color: ${({ theme }) => theme.rightImg.color.mediumGrey};
     }
   }
 `;

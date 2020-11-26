@@ -119,6 +119,7 @@ if (Meteor.isServer) {
 
 Meteor.methods({
   'user.login': function ({ username, phone, password }) {
+    console.log(username);
     let userExist: boolean;
     const user: User = Accounts.findUserByUsername(username);
     userExist = !!user;

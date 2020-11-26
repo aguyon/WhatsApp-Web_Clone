@@ -7,7 +7,7 @@ const StyledSearchBar = styled.div`
   justify-content: center;
   background: ${({ theme }) => theme.searchBar.color.background};
   width: 100%;
-  height: 7%;
+  height: 8%;
   position: relative;
 
   .searchbar--label {
@@ -36,6 +36,7 @@ const StyledSearchBar = styled.div`
     min-height: 2rem;
     outline: none;
     width: 100%;
+    background-color: ${({ theme }) => theme.searchBar.color.inputBackground};
     user-select: text;
     z-index: 1;
     border: none;

@@ -6,14 +6,14 @@ const StyledChatItem = styled.div`
   flex-shrink: 0;
   align-items: center;
   width: calc(100% - 3rem);
-  height: 7.5rem;
+  height: 6rem;
   cursor: pointer;
   padding: 0 1.5rem;
   background: ${({ theme }) => theme.chatItem.color.backgroundNormal};
   &:hover {
     background: ${({ theme }) => theme.chatItem.color.backgroundActive};
   }
-  ${({ active }) =>
+  ${({ active }: any) =>
     active &&
     css`
       background: ${({ theme }) => theme.chatItem.color.backgroundActive};
@@ -24,7 +24,7 @@ const StyledChatItem = styled.div`
     flex-direction: column;
     justify-content: center;
     margin-left: 1.5rem;
-    border-bottom: ${({ theme }) => '0.1rem solid ' + theme.chatItem.color.borderBottom};
+    border-bottom: ${({ theme }) => '0.05rem solid ' + theme.chatItem.color.borderBottom};
     width: 85%;
     height: 100%;
   }
@@ -37,6 +37,7 @@ const StyledChatItem = styled.div`
     margin-bottom: 0.3rem;
   }
   .content--line1__title {
+    color: ${({ theme }) => theme.chatItem.color.title};
     font-size: 1.6rem;
     text-align: left;
   }

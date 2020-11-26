@@ -5,9 +5,8 @@ const StyledStatus = styled.div`
   flex-direction: row;
   align-items: center;
   background: ${({ theme }) => theme.leftStatus.color.bgOrange};
-  width: calc(100% - 2.6rem);
-  height: calc(10% - 2.4rem);
-  padding: 1.2rem 1.3rem;
+  padding: 13px 12px 14px 13px;
+  min-height: 62px;
   cursor: pointer;
 
   ${({ color }) =>
