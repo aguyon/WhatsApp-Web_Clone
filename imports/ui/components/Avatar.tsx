@@ -4,13 +4,20 @@ import StyledAvatar from '../elements/StyledAvatar';
 
 interface AvatarProps {
   large?: boolean;
+  big?: boolean;
   avatar_url: string;
+  onAvatarClick?: () => void;
 }
 
 const Avatar: React.FC<AvatarProps> = (props): JSX.Element => {
   return (
-    <StyledAvatar>
-      <img src={props.avatar_url} alt="avatar" className="avatar--img" />
+    <StyledAvatar big={props.big}>
+      <img
+        src={props.avatar_url}
+        alt="avatar"
+        className="avatar--img"
+        onClick={props.onAvatarClick}
+      />
     </StyledAvatar>
   );
 };

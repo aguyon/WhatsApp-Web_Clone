@@ -6,7 +6,7 @@ import 'moment/locale/fr';
 
 import { Chat, Message, MessageType } from '../../api/models';
 import { MessagesCollection } from '../../api/messages';
-import { uploadFile } from '../../api/helpers';
+import { findOtherId, uploadFile } from '../../api/helpers';
 
 import StyledMessageView from '../elements/StyledMessageView';
 
@@ -22,6 +22,7 @@ interface MessageViewProps {
 
   // Props MainRight
   selectedChat: Chat;
+  onAvatarClick: (otherId: string) => void;
 }
 
 const MessageView = (props: MessageViewProps): JSX.Element => {
@@ -80,10 +81,15 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
     }
   };
 
+  const avatarClick = (): void => {
+    const otherId: string = findOtherId(props.selectedChat.participants);
+    props.onAvatarClick(otherId);
+  };
+
   return (
     <StyledMessageView>
       <Header iconClass="greyIcon" icons={icons}>
-        <Avatar avatar_url={props.selectedChat.picture} />
+        <Avatar avatar_url={props.selectedChat.picture} onAvatarClick={avatarClick} />
         <div className="headerMsg--container">
           <span className="headerMsg--title">{props.selectedChat.title}</span>
           <span className="headerMsg--subtitle">en ligne</span>

@@ -12,6 +12,7 @@ import MainRight from '../ui/components/MainRight';
 import { Chat } from '../api/models';
 import { findChats } from '../api/helpers';
 import { ChatsCollection } from '../api/chats';
+import OtherProfile from '../ui/components/OtherProfile';
 
 interface MainProps {
   // Props withTracker
@@ -24,23 +25,23 @@ interface MainProps {
 }
 
 const Main = (props: MainProps) => {
-  // const [loading, setLoading] = React.useState<boolean>(true);
-
-  // Tracker.autorun(() => {
-  //   const chatsReady: boolean = Meteor.subscribe('chats.mine').ready();
-  //   const messagesReady: boolean = Meteor.subscribe('messages.all').ready();
-
-  //   if (chatsReady && messagesReady) setLoading(false);
-  // });
-
   const [visibleMessage, setVisibleMessage] = React.useState<boolean>(false);
   const [selectedChat, setSelectedChat] = React.useState<Chat>({});
+  const [otherProfile, setOtherProfile] = React.useState<any>({});
 
   const handleChatClick = (id: string): void => {
     if (!visibleMessage) setVisibleMessage(true);
 
     const newChat: Chat = _.find(props.chats, { _id: id });
     setSelectedChat(newChat);
+  };
+
+  const handleAvatarClick = (otherId: string): void => {
+    setOtherProfile({ visible: true, otherId });
+  };
+
+  const handleCloseOtherProfile = (): void => {
+    setOtherProfile({ visible: false, otherId: '' });
   };
 
   return (
@@ -59,7 +60,14 @@ const Main = (props: MainProps) => {
               right
               visibleMessage={visibleMessage}
               selectedChat={selectedChat}
+              onAvatarClick={handleAvatarClick}
             />
+            {otherProfile.visible ? (
+              <OtherProfile
+                otherUserId={otherProfile.otherId}
+                onClose={handleCloseOtherProfile}
+              />
+            ) : null}
           </React.Fragment>
         ) : null}
       </StyledMain>

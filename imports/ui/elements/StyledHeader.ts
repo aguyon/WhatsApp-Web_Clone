@@ -6,9 +6,9 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   width: calc(100% - 3.2rem);
-  height: 6%;
+  height: 3rem;
   background: ${({ theme }) => theme.header.color.background};
-  padding: 1rem 1.6rem;
+  padding: 1.5rem 1.6rem;
   z-index: 1;
 
   .icons--left {

@@ -106,6 +106,16 @@ const LightTheme: object = {
       },
     },
   },
+  otherProfile: {
+    color: {
+      background: '#EDEDED',
+      item: 'white',
+      title: '#009688',
+      divider: '#f0f0f0',
+      borderLeft: '#E5E5E6',
+      hoverItem: '#F5F5F5',
+    },
+  },
 };
 
 export default LightTheme;

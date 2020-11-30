@@ -12,6 +12,7 @@ interface MainRightProps {
   right: boolean;
   visibleMessage: boolean;
   selectedChat: Chat;
+  onAvatarClick: (otherId: string) => void;
 }
 
 const MainRight = (props: MainRightProps): JSX.Element => {
@@ -21,7 +22,10 @@ const MainRight = (props: MainRightProps): JSX.Element => {
   return (
     <StyledMainRight>
       {props.visibleMessage ? (
-        <MessageView selectedChat={props.selectedChat} />
+        <MessageView
+          selectedChat={props.selectedChat}
+          onAvatarClick={props.onAvatarClick}
+        />
       ) : (
         <RightImg theme={props.theme} right={props.right} messageText={messageText} />
       )}

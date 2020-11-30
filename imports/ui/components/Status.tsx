@@ -11,7 +11,10 @@ const Status: React.FC = (props): JSX.Element => {
       <StyledAvatar>
         <FontAwesomeIcon icon={faBellSlash} size="2x" className="icon--color" />
       </StyledAvatar>
-      <div className="status--textContainer">
+      <div
+        className="status--textContainer"
+        onClick={() => Notification.requestPermission()}
+      >
         <div className="text--big">Être averti(e) des nouveaux messages</div>
         <span className="text--small">Activer les notifications sur le bureau</span>
       </div>

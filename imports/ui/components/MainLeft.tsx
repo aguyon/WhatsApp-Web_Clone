@@ -13,7 +13,7 @@ import { Chat } from '../../api/models';
 
 interface MainLeftProps {
   chats: Chat[];
-  onChatClick: () => void;
+  onChatClick: (id: string) => void;
   selectedChat: Chat;
 }
 

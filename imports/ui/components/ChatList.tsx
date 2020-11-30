@@ -8,7 +8,7 @@ import ChatItem from './ChatItem';
 
 interface ChatsListProps {
   chats: Chat[];
-  onChatClick: () => void;
+  onChatClick: (id: string) => void;
   selectedChat: Chat;
 }
 

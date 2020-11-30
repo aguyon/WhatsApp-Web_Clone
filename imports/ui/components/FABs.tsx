@@ -10,7 +10,7 @@ interface FABsProps {
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FABs = (props: FABsProps) => {
+const FABs = (props: FABsProps): JSX.Element => {
   return (
     <StyledFABs fabsVisible={props.fabsVisible}>
       <FABItem iconName="image" background="violet" onClick={props.onFABItemClick}>

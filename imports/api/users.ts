@@ -10,7 +10,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+222222222',
-      picture: 'https://randomuser.me/api/portraits/thumb/men/1.jpg',
+      picture: 'https://randomuser.me/api/portraits/men/1.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -20,7 +20,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+333333333',
-      picture: 'https://randomuser.me/api/portraits/thumb/lego/1.jpg',
+      picture: 'https://randomuser.me/api/portraits/lego/1.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -30,7 +30,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+444444444',
-      picture: 'https://randomuser.me/api/portraits/thumb/women/1.jpg',
+      picture: 'https://randomuser.me/api/portraits/women/1.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -40,7 +40,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+555555555',
-      picture: 'https://randomuser.me/api/portraits/thumb/women/2.jpg',
+      picture: 'https://randomuser.me/api/portraits/women/2.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -50,7 +50,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+666666666',
-      picture: 'https://randomuser.me/api/portraits/thumb/men/2.jpg',
+      picture: 'https://randomuser.me/api/portraits/men/2.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -60,7 +60,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+777777777',
-      picture: 'https://randomuser.me/api/portraits/thumb/men/1.jpg',
+      picture: 'https://randomuser.me/api/portraits/men/1.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -70,7 +70,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+888888888',
-      picture: 'https://randomuser.me/api/portraits/thumb/men/2.jpg',
+      picture: 'https://randomuser.me/api/portraits/men/2.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -80,7 +80,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+999999999',
-      picture: 'https://randomuser.me/api/portraits/thumb/women/1.jpg',
+      picture: 'https://randomuser.me/api/portraits/women/1.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -90,7 +90,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+999999999',
-      picture: 'https://randomuser.me/api/portraits/thumb/women/2.jpg',
+      picture: 'https://randomuser.me/api/portraits/women/2.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },
@@ -100,7 +100,7 @@ export const dummyUsers: User[] = [
     password: 'password',
     profile: {
       phone: '+101010101',
-      picture: 'https://randomuser.me/api/portraits/thumb/men/1.jpg',
+      picture: 'https://randomuser.me/api/portraits/men/1.jpg',
       status: "Salut j'utilise whatsapp",
     },
   },

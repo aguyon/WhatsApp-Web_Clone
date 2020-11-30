@@ -106,6 +106,17 @@ const DarkTheme: object = {
       },
     },
   },
+  otherProfile: {
+    color: {
+      background: '#0D1418',
+      item: '#131C21',
+      title: '#066C65',
+      content: '#CACBCD',
+      divider: '#30383D',
+      borderLeft: '#3C4247',
+      hoverItem: '#2D3134',
+    },
+  },
 };
 
 export default DarkTheme;
