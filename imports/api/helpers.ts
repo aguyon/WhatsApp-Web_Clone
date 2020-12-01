@@ -67,7 +67,7 @@ const findLastMessage = (chatId: string): Message => {
   return MessagesCollection.find({ chatId }, { sort: { createdAt: -1 } }).fetch()[0];
 };
 
-export const uploadFile = (file: any, isMessage?: boolean): void => {
+export const uploadFile = (file: any, isMessage: boolean): void => {
   const fileUpload = ImagesCollection.insert(
     {
       file,
@@ -83,30 +83,29 @@ export const uploadFile = (file: any, isMessage?: boolean): void => {
   });
 
   fileUpload.on('end', (err, fileObj) => {
-    console.log('end', fileObj);
     if (err) {
       console.log('err upload', err);
     } else {
-      console.log(fileObj);
+      console.log('end', fileObj);
       const _id: string = fileObj._id;
-      // if (isMessage) {
-      Meteor.call('images.url', _id, (err, url: string) => {
-        if (err) {
-          console.log('err url : ', err);
-        } else {
-          console.log('url :', url);
-          // Session.set('wwc__imageUrl', url)
-        }
-      });
-      // } else {
-      //   Meteor.call('user.picture', _id, (err, url) => {
-      //     if (err) {
-      //       console.log('err url : ', err);
-      //     } else {
-      //       console.log('url :', url);
-      //     }
-      //   });
-      // }
+      if (isMessage) {
+        Meteor.call('images.url', _id, (err, url: string) => {
+          if (err) {
+            console.log('err url : ', err);
+          } else {
+            console.log('url :', url);
+            // Session.set('wwc__imageUrl', url)
+          }
+        });
+      } else {
+        Meteor.call('user.picture', _id, (err, picture: string) => {
+          if (err) {
+            console.log('err picture : ', err);
+          } else {
+            console.log('picture :', picture);
+          }
+        });
+      }
     }
   });
 

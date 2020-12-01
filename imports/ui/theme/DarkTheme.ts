@@ -106,6 +106,16 @@ const DarkTheme: object = {
       },
     },
   },
+  profile: {
+    color: {
+      background: '#131C21',
+      header: '#323739',
+      form: '#131C21',
+      input: '#C9CACC',
+      border: '#00AF9C',
+      icon: '#828689',
+    },
+  },
   otherProfile: {
     color: {
       background: '#0D1418',

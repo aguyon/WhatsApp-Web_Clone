@@ -12,7 +12,7 @@ import MainRight from '../ui/components/MainRight';
 import { Chat } from '../api/models';
 import { findChats } from '../api/helpers';
 import { ChatsCollection } from '../api/chats';
-import OtherProfile from '../ui/components/OtherProfile';
+import OtherProfile from '../ui/components/OtherProfile/OtherProfile';
 
 interface MainProps {
   // Props withTracker
@@ -91,7 +91,7 @@ const StyledMainHeaderColor = styled.div`
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 120px;
+  height: 127px;
   z-index: 1;
 `;
 

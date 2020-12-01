@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { ChatItemProps } from './../components/ChatItem';
 
 const StyledChatItem = styled.div`
   display: flex;
@@ -14,8 +15,8 @@ const StyledChatItem = styled.div`
     background: ${({ theme }) => theme.chatItem.color.backgroundActive};
   }
 
-  ${({ active }: any) =>
-    active &&
+  ${(props: ChatItemProps) =>
+    props.active &&
     css`
       background: ${({ theme }) => theme.chatItem.color.backgroundActive};
     `}

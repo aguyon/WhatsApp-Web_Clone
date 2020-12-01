@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import StyledActuItem from '../elements/StyledActuItem';
+import StyledActuItem from '../../elements/StyledActuItem';
 
 interface ActuItemProps {
   red?: boolean;

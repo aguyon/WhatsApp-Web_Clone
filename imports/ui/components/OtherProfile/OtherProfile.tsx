@@ -2,13 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBan, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { User } from '../../api/models';
-import { findOtherUser } from '../../api/helpers';
+import { User } from '../../../api/models';
+import { findOtherUser } from '../../../api/helpers';
 
-import StyledOtherProfile from '../elements/StyledOtherProfile';
+import StyledOtherProfile from '../../elements/StyledOtherProfile';
 
-import Header from './Header';
-import Avatar from './Avatar';
+import Header from '../Header';
+import Avatar from '../Avatar';
 import Actu from './Actu';
 import ActuItem from './ActuItem';
 

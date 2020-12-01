@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StyledActu from '../elements/StyledActu';
+import StyledActu from '../../elements/StyledActu';
 
 interface ActuProps {
   status: string;

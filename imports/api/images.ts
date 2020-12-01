@@ -26,8 +26,8 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     'images.url': function (_id: string) {
-      const image = ImagesCollection.findOne(_id);
-      const url: string = image.link();
+      const Image = ImagesCollection.findOne(_id);
+      const url: string = Image.link();
       return url;
     },
   });

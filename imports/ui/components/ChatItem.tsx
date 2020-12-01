@@ -6,12 +6,12 @@ import StyledChatItem from '../elements/StyledChatItem';
 
 import Avatar from '../components/Avatar';
 
-interface ChatItemProps {
-  id: string;
+export interface ChatItemProps {
+  id?: string;
   title?: string;
   picture?: string;
   lastMessage?: { content?: string; createdAt?: Date };
-  onChatClick: (id: string) => void;
+  onChatClick?: (id: string) => void;
   active?: boolean;
 }
 

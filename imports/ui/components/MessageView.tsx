@@ -99,7 +99,7 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
         <Modal
           selectedImage={selectedImage}
           onClose={handleCloseModal}
-          onUpload={() => uploadFile(fileInput)}
+          onUpload={() => uploadFile(fileInput, true)}
         />
       ) : (
         <React.Fragment>

@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 import { User } from './models';
+import { ImagesCollection } from './images';
 
 export const dummyUsers: User[] = [
   {
@@ -119,10 +120,10 @@ if (Meteor.isServer) {
 
 Meteor.methods({
   'user.login': function ({ username, phone, password }) {
-    console.log(username);
     let userExist: boolean;
     const user: User = Accounts.findUserByUsername(username);
     userExist = !!user;
+
     if (userExist) {
       console.log('User exist', user);
       return true;
@@ -139,5 +140,23 @@ Meteor.methods({
         },
       });
     }
+  },
+
+  'user.username': function (id: string, username: string) {
+    Accounts.setUsername(id, username);
+  },
+
+  'user.picture': function (imageId: string) {
+    const Image = ImagesCollection.findOne(imageId);
+    const picture: string = Image.link();
+
+    return Meteor.users.update(
+      { _id: Meteor.userId() },
+      {
+        $set: {
+          'profile.picture': picture,
+        },
+      }
+    );
   },
 });

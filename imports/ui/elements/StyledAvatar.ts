@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { AvatarProps } from './../components/Avatar';
 
 const StyledAvatar = styled.div`
   width: 4rem;
@@ -12,7 +13,7 @@ const StyledAvatar = styled.div`
   align-items: center;
   cursor: pointer;
 
-  ${(props) =>
+  ${(props: AvatarProps) =>
     props.large &&
     css`
       width: 4.9rem;
@@ -20,7 +21,7 @@ const StyledAvatar = styled.div`
       border-radius: 2.45rem;
     `}
 
-  ${(props) =>
+  ${(props: AvatarProps) =>
     props.big &&
     css`
       width: 20rem;
@@ -31,6 +32,34 @@ const StyledAvatar = styled.div`
   .avatar--img {
     width: 100%;
     height: 100%;
+  }
+
+  .avatar--overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 55, 57, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 2.4rem;
+  }
+
+  .overlay--icon {
+    margin-bottom: 1.3rem;
+  }
+
+  .overlay--text {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 50%;
+    text-transform: uppercase;
+  }
+
+  input[type='file'] {
+    display: none;
   }
 `;
 
