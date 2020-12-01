@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 
-const StyledProfile = styled.div`
+const StyledLeftSide = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.profile.color.background};
+  background: ${({ theme }) => theme.leftSide.color.background};
 
-  .profile--header {
+  .LS--header {
     display: flex;
     flex-direction: column;
-    background: ${({ theme }) => theme.profile.color.header};
+    background: ${({ theme }) => theme.leftSide.color.header};
     width: calc(100% - 4.6rem);
     height: auto;
     padding: 4.9rem 2.3rem;
     padding-bottom: 0rem;
   }
 
-  .profile--header__line {
+  .LS--header__line {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,12 +27,12 @@ const StyledProfile = styled.div`
     height: 5.9rem;
   }
 
-  .profile--header__icon {
+  .LS--header__icon {
     margin-right: 2.9rem;
     cursor: pointer;
   }
 
-  .profile--avatar {
+  .LS--avatar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ const StyledProfile = styled.div`
     margin: 2.8rem 0rem;
   }
 
-  .profile--desc {
+  .LS--desc {
     background: inherit;
     text-align: justify;
     padding: 1rem 3rem;
@@ -52,4 +52,4 @@ const StyledProfile = styled.div`
   }
 `;
 
-export default StyledProfile;
+export default StyledLeftSide;

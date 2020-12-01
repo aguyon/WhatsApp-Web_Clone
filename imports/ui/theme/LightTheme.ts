@@ -106,10 +106,11 @@ const LightTheme: object = {
       },
     },
   },
-  profile: {
+  leftSide: {
     color: {
       background: '#EDEDED',
       header: '#00BFA5',
+      letter: '#FFFFFF',
       form: '#FFFFFF',
       input: '#666666',
       border: '#00BFA5',

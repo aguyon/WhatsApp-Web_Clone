@@ -5,7 +5,7 @@ const StyledChatList = styled.div`
   flex-direction: column;
   background: ${({ theme }) => theme.chatList.color.background};
   width: 100%;
-  height: 78%;
+  height: 80%;
   overflow-y: auto;
   position: relative;
 

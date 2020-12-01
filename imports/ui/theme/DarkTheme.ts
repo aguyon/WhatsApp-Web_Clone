@@ -106,10 +106,11 @@ const DarkTheme: object = {
       },
     },
   },
-  profile: {
+  leftSide: {
     color: {
       background: '#131C21',
       header: '#323739',
+      letter: '#131C21',
       form: '#131C21',
       input: '#C9CACC',
       border: '#00AF9C',

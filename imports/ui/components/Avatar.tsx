@@ -9,7 +9,7 @@ export interface AvatarProps {
   large?: boolean;
   big?: boolean;
   avatar_url?: string;
-  inProfile?: boolean;
+  inLeftSide?: boolean;
   onAvatarClick?: () => void;
 }
 
@@ -28,7 +28,7 @@ const Avatar: React.FC<AvatarProps> = (props): JSX.Element => {
   };
 
   const renderOverlay = (): JSX.Element => {
-    if (props.inProfile && hover) {
+    if (props.inLeftSide && hover) {
       return (
         <div
           className="avatar--overlay"
@@ -43,7 +43,7 @@ const Avatar: React.FC<AvatarProps> = (props): JSX.Element => {
   };
 
   return (
-    <StyledAvatar big={props.big}>
+    <StyledAvatar large={props.large} big={props.big}>
       <img
         src={props.avatar_url}
         alt="avatar"

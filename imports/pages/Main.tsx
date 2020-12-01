@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import moment from 'moment';
 import _ from 'lodash';
 import styled from 'styled-components';
 
@@ -9,7 +10,7 @@ import StyledMain from '../ui/elements/StyledMain';
 import MainLeft from '../ui/components/MainLeft';
 import MainRight from '../ui/components/MainRight';
 
-import { Chat } from '../api/models';
+import { Chat, MessageType } from '../api/models';
 import { findChats } from '../api/helpers';
 import { ChatsCollection } from '../api/chats';
 import OtherProfile from '../ui/components/OtherProfile/OtherProfile';
@@ -33,7 +34,11 @@ const Main = (props: MainProps) => {
     if (!visibleMessage) setVisibleMessage(true);
 
     const newChat: Chat = _.find(props.chats, { _id: id });
-    setSelectedChat(newChat);
+    if (newChat) setSelectedChat(newChat);
+    else {
+      const newChat: Chat = ChatsCollection.findOne(id);
+      setSelectedChat(newChat);
+    }
   };
 
   const handleAvatarClick = (otherId: string): void => {
@@ -42,6 +47,35 @@ const Main = (props: MainProps) => {
 
   const handleCloseOtherProfile = (): void => {
     setOtherProfile({ visible: false, otherId: '' });
+  };
+
+  const handleUserItemClick = (
+    otherUserId: string,
+    username: string,
+    picture: string
+  ): void => {
+    const chat: Chat = ChatsCollection.findOne({
+      participants: {
+        $all: [otherUserId, Meteor.userId()],
+      },
+    });
+
+    if (chat) {
+      handleChatClick(chat._id);
+    } else {
+      const chatId: string = ChatsCollection.insert({
+        title: username,
+        picture,
+        participants: [otherUserId, Meteor.userId()],
+        lastMessage: {
+          content: '',
+          createdAt: moment().toDate(),
+          type: MessageType.TEXT,
+        },
+      });
+
+      handleChatClick(chatId);
+    }
   };
 
   return (
@@ -54,6 +88,7 @@ const Main = (props: MainProps) => {
               chats={props.chats}
               onChatClick={handleChatClick}
               selectedChat={selectedChat}
+              onUserItemClick={handleUserItemClick}
             />
             <MainRight
               theme={props.theme}

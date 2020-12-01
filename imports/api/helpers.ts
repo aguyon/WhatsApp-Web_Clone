@@ -64,7 +64,16 @@ export const findOtherUser = (_id: string): User => {
 };
 
 const findLastMessage = (chatId: string): Message => {
-  return MessagesCollection.find({ chatId }, { sort: { createdAt: -1 } }).fetch()[0];
+  const messages: Message[] = MessagesCollection.find(
+    { chatId },
+    { sort: { createdAt: -1 } }
+  ).fetch();
+
+  if (!messages[0]) {
+    return ChatsCollection.findOne(chatId).lastMessage;
+  }
+
+  return messages[0];
 };
 
 export const uploadFile = (file: any, isMessage: boolean): void => {

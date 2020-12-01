@@ -8,6 +8,7 @@ const StyledChatItem = styled.div`
   align-items: center;
   width: calc(100% - 3rem);
   height: 7rem;
+  margin-top: 1px;
   cursor: pointer;
   padding: 0 1.5rem;
   background: ${({ theme }) => theme.chatItem.color.backgroundNormal};

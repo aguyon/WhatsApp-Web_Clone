@@ -6,10 +6,10 @@ const StyledForm = styled.div`
   width: calc(100% - 6rem);
   height: auto;
   padding: 1rem 3rem;
-  background: ${({ theme }) => theme.profile.color.form};
+  background: ${({ theme }) => theme.leftSide.color.form};
 
   .form--title {
-    color: ${({ theme }) => theme.profile.color.border};
+    color: ${({ theme }) => theme.leftSide.color.border};
     font-size: 1.4rem;
     margin-bottom: 1.9rem;
     font-weight: 500;
@@ -32,19 +32,19 @@ const StyledForm = styled.div`
     outline: none;
     font-size: 1.7rem;
     padding-bottom: 0.4rem;
-    background: ${({ theme }) => theme.profile.color.form};
-    color: ${({ theme }) => theme.profile.color.input};
+    background: ${({ theme }) => theme.leftSide.color.form};
+    color: ${({ theme }) => theme.leftSide.color.input};
   }
 
   .__border {
-    border-bottom: 0.2rem solid ${({ theme }) => theme.profile.color.border}; !important;
+    border-bottom: 0.2rem solid ${({ theme }) => theme.leftSide.color.border}; !important;
   }
 
   .form--icon {
     width: 10%;
     font-size: 1.7rem;
     text-align: right;
-    color: ${({ theme }) => theme.profile.color.icon};
+    color: ${({ theme }) => theme.leftSide.color.icon};
     cursor: pointer;
   }
 `;
