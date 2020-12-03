@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Session } from 'meteor/session';
 import moment from 'moment';
 import _ from 'lodash';
 import styled from 'styled-components';
@@ -16,6 +17,7 @@ import MainRight from '../ui/components/MainRight';
 import OtherProfile from '../ui/components/OtherProfile/OtherProfile';
 import BigOverlay from '../ui/components/BigOverlay';
 import ImageViewer from '../ui/components/ImageViewer';
+import Popup from '../ui/components/Popup';
 
 interface MainProps {
   // Props withTracker
@@ -28,10 +30,14 @@ interface MainProps {
 }
 
 const initialBigOverlay = {
-  username: '',
   image: {
     visible: false,
     url: '',
+    username: '',
+  },
+  popup: {
+    visible: false,
+    title: '',
   },
 };
 
@@ -93,14 +99,35 @@ const Main = (props: MainProps) => {
     }
   };
 
+  const handleMessageClick = (messageId: string, type: string): void => {
+    Session.set('wc--message__id', messageId);
+    setVisibleBigOverlay((prevState) => {
+      return {
+        ...prevState,
+        popup: {
+          visible: true,
+          title: type === 'TEXT' ? 'Supprimer le message ?' : `Supprimer l'image ?`,
+        },
+      };
+    });
+  };
+
+  const handleDeleteMessage = (): void => {
+    const messageId: string = Session.get('wc--message__id');
+    Meteor.call('message.delete', messageId, (err, res) => {
+      if (err) console.log('err delete message', err);
+      else handleCloseBigOverlay();
+    });
+  };
+
   const showImage = (imageUrl: string, username: string): void => {
     setVisibleBigOverlay((prevState) => {
       return {
         ...prevState,
-        username,
         image: {
           visible: true,
           url: imageUrl,
+          username,
         },
       };
     });
@@ -109,11 +136,14 @@ const Main = (props: MainProps) => {
   const handleCloseBigOverlay = (): void => {
     setVisibleBigOverlay((prevState) => {
       return {
-        ...prevState,
-        username: '',
         image: {
           visible: false,
           url: '',
+          username: '',
+        },
+        popup: {
+          visible: false,
+          title: '',
         },
       };
     });
@@ -137,22 +167,36 @@ const Main = (props: MainProps) => {
               selectedChat={selectedChat}
               onUserItemClick={handleUserItemClick}
             />
+
             <MainRight
               theme={props.theme}
               right
               visibleMessage={visibleMessage}
               selectedChat={selectedChat}
               onAvatarClick={handleAvatarClick}
+              onMessageClick={handleMessageClick}
             />
+
+            {visibleBigOverlay.popup.visible ? (
+              <BigOverlay>
+                <Popup
+                  title={visibleBigOverlay.popup.title}
+                  onCancel={handleCloseBigOverlay}
+                  onDelete={handleDeleteMessage}
+                />
+              </BigOverlay>
+            ) : null}
+
             {visibleBigOverlay.image.visible ? (
               <BigOverlay>
                 <ImageViewer
                   imageUrl={visibleBigOverlay.image.url}
-                  username={visibleBigOverlay.username}
+                  username={visibleBigOverlay.image.username}
                   onClose={handleCloseBigOverlay}
                 />
               </BigOverlay>
             ) : null}
+
             {otherProfile.visible ? (
               <OtherProfile
                 otherUserId={otherProfile.otherId}

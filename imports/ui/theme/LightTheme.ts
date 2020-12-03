@@ -129,9 +129,18 @@ const LightTheme: object = {
   },
   bigOverlay: {
     color: {
-      background: 'hsla(20, 0%, 100%, 0.9)',
+      background: 'hsla(20, 0%, 100%, 0.99)',
       icon: '#3F3F3F',
       username: '#464646',
+    },
+  },
+  popup: {
+    color: {
+      background: '#FFFFFF',
+      title: '#575757',
+      button: '#06D253',
+      hover: '#FFFFFF',
+      hoverDelete: '#06D253',
     },
   },
 };

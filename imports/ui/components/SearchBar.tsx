@@ -6,7 +6,7 @@ import StyledSearchBar from '../elements/StyledSearchBar';
 
 interface SearchBarProps {
   placeholder: string;
-  onSearch: (searchedValue: string) => void;
+  onSearch?: (searchedValue: string) => void;
 }
 
 const SearchBar = (props: SearchBarProps): JSX.Element => {

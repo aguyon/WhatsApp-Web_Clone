@@ -11,7 +11,7 @@
 
 ## Enseignements
 
-- Créer un Réseau Social avec système de messagerie instantanée, upload de photos, recherche utilisateurs, système d’authentification
+- Créer un Réseau Social avec système de messagerie instantanée, upload de photos, recherche d'utilisateurs, système d’authentification
 - Travailler avec Meteor, React et TypeScript
 - Implémenter une communication en temps réel grâce à Meteor
 - Gérer 2 thèmes différents grâce à styled-components

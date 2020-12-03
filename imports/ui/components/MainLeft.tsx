@@ -69,6 +69,10 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
     );
   };
 
+  const handleChatSearch = (value: string) => {
+    return value;
+  };
+
   const renderLeftSide = (): JSX.Element => {
     if (usersListVisible) {
       return (
@@ -112,7 +116,10 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
             <Avatar avatar_url={props.picture} onAvatarClick={toggleLeftSide} />
           </Header>
           <Status />
-          <SearchBar placeholder="Rechercher ou démarrer une nouvelle discussion" />
+          <SearchBar
+            placeholder="Rechercher ou démarrer une nouvelle discussion"
+            onSearch={handleChatSearch}
+          />
           <ChatList
             chats={props.chats}
             onChatClick={props.onChatClick}

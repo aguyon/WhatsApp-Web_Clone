@@ -14,6 +14,7 @@ import MessageText from './MessageText';
 import FABs from './FABs';
 
 interface MessageBoxProps {
+  onMessageClick: (messageId: string, type: string) => void;
   selectedChat: Chat;
   messages: Message[];
   fabsVisible: boolean;
@@ -61,6 +62,8 @@ const MessageBox = (props: MessageBoxProps): JSX.Element => {
       const msgClass: string = `message message--${message.ownership}`;
       return (
         <MessageText
+          id={message._id}
+          onMessageClick={props.onMessageClick}
           key={message._id}
           msgClass={msgClass}
           content={message.content}

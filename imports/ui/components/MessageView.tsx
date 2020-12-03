@@ -21,6 +21,7 @@ interface MessageViewProps {
   message: Message[];
 
   // Props MainRight
+  onMessageClick: (messageId: string, type: string) => void;
   selectedChat: Chat;
   onAvatarClick: (otherId: string) => void;
 }
@@ -104,6 +105,7 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
       ) : (
         <React.Fragment>
           <MessageBox
+            onMessageClick={props.onMessageClick}
             selectedChat={props.selectedChat}
             messages={props.message}
             fabsVisible={fabsVisible}

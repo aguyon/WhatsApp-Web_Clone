@@ -145,8 +145,13 @@ export const getBadges = (chatId: string): number => {
 export const updateBadges = (participants: string[], chatId: string): void => {
   const otherId: string = findOtherId(participants);
 
-  Meteor.call('message.update.badges', chatId, otherId, (err, res) => {
-    if (err) console.log('error update badges', err);
-    else console.log('res update badges', res);
-  });
+  Meteor.call(
+    'message.update.badges',
+    chatId,
+    otherId
+    //  (err, res) => {
+    //   if (err) console.log('error update badges', err);
+    //   else console.log('res update badges', res);
+    // }
+  );
 };

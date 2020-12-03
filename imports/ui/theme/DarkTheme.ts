@@ -130,9 +130,18 @@ const DarkTheme: object = {
   },
   bigOverlay: {
     color: {
-      background: 'hsla(201, 27%, 10%, 0.98)',
+      background: 'hsla(201, 27%, 10%, 0.95)',
       icon: '#C5C6C8',
       username: '#DBDCDD',
+    },
+  },
+  popup: {
+    color: {
+      background: '#3B4042',
+      title: '#C1C3C5',
+      button: '#00AF9C',
+      hover: '#44494B',
+      hoverDelete: '#00C3AE',
     },
   },
 };

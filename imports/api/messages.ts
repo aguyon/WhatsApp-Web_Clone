@@ -37,6 +37,10 @@ if (Meteor.isServer) {
         { multi: true }
       );
     },
+
+    'message.delete': function (_id: string) {
+      return MessagesCollection.remove(_id);
+    },
   });
 }
 
