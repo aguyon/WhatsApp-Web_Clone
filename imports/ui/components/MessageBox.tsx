@@ -6,6 +6,7 @@ import 'moment/locale/fr';
 import FlipMove from 'react-flip-move';
 
 import { Chat, Message } from '../../api/models';
+import { updateBadges } from '../../api/helpers';
 
 import StyledMessageBox from '../elements/StyledMessageBox';
 import Day from './Day';
@@ -28,6 +29,8 @@ const MessageBox = (props: MessageBoxProps): JSX.Element => {
 
   React.useEffect(() => {
     scrollToBottom();
+
+    updateBadges(props.selectedChat.participants, props.selectedChat._id);
   }, [props.selectedChat, props.messages]);
 
   props.messages.forEach((message: Message) => {
@@ -73,7 +76,7 @@ const MessageBox = (props: MessageBoxProps): JSX.Element => {
       const sub1Day: string = moment().subtract(1, 'days').format(format);
       const sub2Day: string = moment().subtract(2, 'days').format(format);
 
-      if (message.today) return "Aujourd'hui";
+      if (message.today) return `Aujourd'hui`;
       if (message.date === sub1Day) return 'Hier';
       if (message.date === sub2Day) return moment().subtract(2, 'days').format('dddd');
       else return message.date;

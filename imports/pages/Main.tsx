@@ -5,15 +5,17 @@ import moment from 'moment';
 import _ from 'lodash';
 import styled from 'styled-components';
 
+import { Chat, MessageType } from '../api/models';
+import { findChats } from '../api/helpers';
+import { ChatsCollection } from '../api/chats';
+
 import StyledMain from '../ui/elements/StyledMain';
 
 import MainLeft from '../ui/components/MainLeft';
 import MainRight from '../ui/components/MainRight';
-
-import { Chat, MessageType } from '../api/models';
-import { findChats } from '../api/helpers';
-import { ChatsCollection } from '../api/chats';
 import OtherProfile from '../ui/components/OtherProfile/OtherProfile';
+import BigOverlay from '../ui/components/BigOverlay';
+import ImageViewer from '../ui/components/ImageViewer';
 
 interface MainProps {
   // Props withTracker
@@ -25,16 +27,29 @@ interface MainProps {
   toggleTheme: () => void;
 }
 
+const initialBigOverlay = {
+  username: '',
+  image: {
+    visible: false,
+    url: '',
+  },
+};
+
 const Main = (props: MainProps) => {
   const [visibleMessage, setVisibleMessage] = React.useState<boolean>(false);
+  const [visibleBigOverlay, setVisibleBigOverlay] = React.useState<any>(
+    initialBigOverlay
+  );
   const [selectedChat, setSelectedChat] = React.useState<Chat>({});
   const [otherProfile, setOtherProfile] = React.useState<any>({});
 
   const handleChatClick = (id: string): void => {
-    if (!visibleMessage) setVisibleMessage(true);
+    if (!visibleMessage) {
+      setVisibleMessage(true);
+    }
 
-    const newChat: Chat = _.find(props.chats, { _id: id });
-    if (newChat) setSelectedChat(newChat);
+    const chat: Chat = _.find(props.chats, { _id: id });
+    if (chat) setSelectedChat(chat);
     else {
       const newChat: Chat = ChatsCollection.findOne(id);
       setSelectedChat(newChat);
@@ -78,6 +93,38 @@ const Main = (props: MainProps) => {
     }
   };
 
+  const showImage = (imageUrl: string, username: string): void => {
+    setVisibleBigOverlay((prevState) => {
+      return {
+        ...prevState,
+        username,
+        image: {
+          visible: true,
+          url: imageUrl,
+        },
+      };
+    });
+  };
+
+  const handleCloseBigOverlay = (): void => {
+    setVisibleBigOverlay((prevState) => {
+      return {
+        ...prevState,
+        username: '',
+        image: {
+          visible: false,
+          url: '',
+        },
+      };
+    });
+  };
+
+  const handleDeleteChat = (): void => {
+    Meteor.call('chat.delete', selectedChat._id);
+    setVisibleMessage(false);
+    setOtherProfile({ visible: false, otherId: '' });
+  };
+
   return (
     <StyledMainContainer>
       <StyledMain>
@@ -97,10 +144,21 @@ const Main = (props: MainProps) => {
               selectedChat={selectedChat}
               onAvatarClick={handleAvatarClick}
             />
+            {visibleBigOverlay.image.visible ? (
+              <BigOverlay>
+                <ImageViewer
+                  imageUrl={visibleBigOverlay.image.url}
+                  username={visibleBigOverlay.username}
+                  onClose={handleCloseBigOverlay}
+                />
+              </BigOverlay>
+            ) : null}
             {otherProfile.visible ? (
               <OtherProfile
                 otherUserId={otherProfile.otherId}
                 onClose={handleCloseOtherProfile}
+                onShowImage={showImage}
+                onDeleteChat={handleDeleteChat}
               />
             ) : null}
           </React.Fragment>

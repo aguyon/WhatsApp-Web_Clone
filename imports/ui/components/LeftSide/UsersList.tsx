@@ -14,6 +14,8 @@ interface UsersListProps {
 
   // Props MainLeft
   onUserItemClick: () => void;
+  searchedValue: string;
+  searchedUsers: User[];
 }
 
 interface Users {
@@ -63,21 +65,24 @@ const UsersList = (props: UsersListProps): JSX.Element => {
   return <StyledUsersList>{renderLetters()}</StyledUsersList>;
 };
 
-export default withTracker(() => {
+export default withTracker((props) => {
   return {
-    users: Meteor.users
-      .find(
-        {
-          _id: {
-            $ne: Meteor.userId(),
-          },
-        },
-        {
-          sort: {
-            username: 1,
-          },
-        }
-      )
-      .fetch(),
+    users:
+      props.searchedValue === ''
+        ? Meteor.users
+            .find(
+              {
+                _id: {
+                  $ne: Meteor.userId(),
+                },
+              },
+              {
+                sort: {
+                  username: 1,
+                },
+              }
+            )
+            .fetch()
+        : props.searchedUsers,
   };
 })(UsersList);

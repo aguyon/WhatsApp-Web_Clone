@@ -127,6 +127,13 @@ const LightTheme: object = {
       hoverItem: '#F5F5F5',
     },
   },
+  bigOverlay: {
+    color: {
+      background: 'hsla(20, 0%, 100%, 0.9)',
+      icon: '#3F3F3F',
+      username: '#464646',
+    },
+  },
 };
 
 export default LightTheme;

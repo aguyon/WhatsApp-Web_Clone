@@ -2,7 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Chat } from '../../api/models';
+import { Chat, User } from '../../api/models';
 
 import StyledMainLeft from '../elements/StyledMainLeft';
 
@@ -30,6 +30,8 @@ interface MainLeftProps {
 const MainLeft = (props: MainLeftProps): JSX.Element => {
   const [leftSideVisible, setLeftSideVisible] = React.useState<boolean>(false);
   const [usersListVisible, setUsersListVisible] = React.useState<boolean>(false);
+  const [searchedValue, setSearchedValue] = React.useState<string>('');
+  const [searchedUsers, setSearchedUsers] = React.useState<User[]>([]);
 
   const icons: { icon: string; onClick?: () => void }[] = [
     { icon: 'circle-notch' },
@@ -55,6 +57,18 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
     props.onUserItemClick(id, username, picture);
   };
 
+  const handleUserSearch = (value: string): void => {
+    setSearchedValue(value);
+    setSearchedUsers(
+      Meteor.users
+        .find(
+          { _id: { $ne: Meteor.userId() }, username: { $regex: value, $options: 'i' } },
+          { sort: { username: 1 } }
+        )
+        .fetch()
+    );
+  };
+
   const renderLeftSide = (): JSX.Element => {
     if (usersListVisible) {
       return (
@@ -63,8 +77,12 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
             title="Nouvelle discussion"
             onLeftSideHeaderClose={toggleLeftSide}
           />
-          <SearchBar placeholder="Chercher des contacts" />
-          <UsersList onUserItemClick={userItemClick} />
+          <SearchBar placeholder="Chercher des contacts" onSearch={handleUserSearch} />
+          <UsersList
+            onUserItemClick={userItemClick}
+            searchedValue={searchedValue}
+            searchedUsers={searchedUsers}
+          />
         </>
       );
     }

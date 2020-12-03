@@ -14,6 +14,29 @@ if (Meteor.isServer) {
     'message.insert': function (message) {
       return MessagesCollection.insert(message);
     },
+
+    'message.update': function (_id: string, content: string) {
+      return MessagesCollection.update(
+        { _id },
+        {
+          $set: {
+            content,
+          },
+        }
+      );
+    },
+
+    'message.update.badges': function (chatId: string, otherId: string) {
+      return MessagesCollection.update(
+        { chatId, senderId: otherId },
+        {
+          $set: {
+            read: true,
+          },
+        },
+        { multi: true }
+      );
+    },
   });
 }
 

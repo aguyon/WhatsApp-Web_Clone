@@ -128,6 +128,13 @@ const DarkTheme: object = {
       hoverItem: '#2D3134',
     },
   },
+  bigOverlay: {
+    color: {
+      background: 'hsla(201, 27%, 10%, 0.98)',
+      icon: '#C5C6C8',
+      username: '#DBDCDD',
+    },
+  },
 };
 
 export default DarkTheme;

@@ -6,7 +6,6 @@ const StyledUsersList = styled(StyledChatList)`
   height: 80%;
 
   .letter {
-    height: 7.2rem;
     font-size: 1.6rem;
     color: ${({ theme }) => theme.leftSide.color.border};
     text-transform: uppercase;

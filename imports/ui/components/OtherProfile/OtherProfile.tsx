@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBan, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,6 +16,8 @@ import ActuItem from './ActuItem';
 interface OtherProfileProps {
   otherUserId: string;
   onClose: () => void;
+  onShowImage: (imageUrl: string, username: string) => void;
+  onDeleteChat: () => void;
 }
 
 const OtherProfile = (props: OtherProfileProps): JSX.Element => {
@@ -36,7 +39,13 @@ const OtherProfile = (props: OtherProfileProps): JSX.Element => {
           </Header>
           <div>
             <div className="OP--imageContainer">
-              <Avatar big avatar_url={otherUser.profile.picture} />
+              <Avatar
+                big
+                avatar_url={otherUser.profile.picture}
+                onAvatarClick={() =>
+                  props.onShowImage(otherUser.profile.picture, otherUser.username)
+                }
+              />
               <div className="OPIC--textContainer">
                 <span className="OPIC--title">{otherUser.username}</span>
                 <span className="OPIC--subTitle">en ligne</span>
@@ -45,7 +54,9 @@ const OtherProfile = (props: OtherProfileProps): JSX.Element => {
             <Actu status={otherUser.profile.status} phone={otherUser.profile.phone} />
             <ActuItem iconName={faBan} content="Bloquer" />
             <ActuItem iconName={faThumbsDown} red content="Signaler le contact" />
-            <ActuItem iconName={faTrash} red content="Supprimer la discussion" />
+            <div onClick={props.onDeleteChat}>
+              <ActuItem iconName={faTrash} red content="Supprimer la discussion" />
+            </div>
           </div>
         </>
       ) : null}

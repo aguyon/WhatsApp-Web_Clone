@@ -40,11 +40,18 @@ if (Meteor.isServer) {
   Meteor.publish('chats.all', function () {
     return ChatsCollection.find();
   });
+
   Meteor.publish('chats.mine', function () {
     return ChatsCollection.find({
       participants: {
         $in: [this.userId],
       },
     });
+  });
+
+  Meteor.methods({
+    'chat.delete': function (_id) {
+      return ChatsCollection.remove(_id);
+    },
   });
 }
