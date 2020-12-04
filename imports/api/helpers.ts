@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import { Session } from 'meteor/session';
 
-import { User, Chat, Profile, Message } from './models';
+import { User, Chat, Message } from './models';
 import { ChatsCollection } from './chats';
 import { MessagesCollection } from './messages';
 import { ImagesCollection } from './images';
@@ -87,30 +88,26 @@ export const uploadFile = (file: any, isMessage: boolean): void => {
     false
   );
 
-  fileUpload.on('start', () => {
-    console.log('start');
-  });
+  fileUpload.on('start', () => console.log('start'));
 
-  fileUpload.on('end', (err, fileObj) => {
-    if (err) {
-      console.log('err upload', err);
-    } else {
+  fileUpload.on('end', (err: Error, fileObj: { _id: string }) => {
+    if (err) console.log('err upload', err);
+    else {
       console.log('end', fileObj);
       const _id: string = fileObj._id;
+
       if (isMessage) {
-        Meteor.call('images.url', _id, (err, url: string) => {
-          if (err) {
-            console.log('err url : ', err);
-          } else {
+        Meteor.call('image.url', _id, (err: Error, url: string) => {
+          if (err) console.log('err url : ', err);
+          else {
             console.log('url :', url);
-            // Session.set('wwc__imageUrl', url)
+            Session.set('wc--imageUrl', url);
           }
         });
       } else {
-        Meteor.call('user.picture', _id, (err, picture: string) => {
-          if (err) {
-            console.log('err picture : ', err);
-          } else {
+        Meteor.call('user.picture', _id, (err: Error, picture: string) => {
+          if (err) console.log('err picture : ', err);
+          else {
             console.log('picture :', picture);
           }
         });
@@ -118,13 +115,9 @@ export const uploadFile = (file: any, isMessage: boolean): void => {
     }
   });
 
-  fileUpload.on('err', (err, fileObj) => {
-    console.log('err', err);
-  });
+  fileUpload.on('err', (err: Error) => console.log('err', err));
 
-  fileUpload.on('progress', (progress, fileObj) => {
-    console.log('progress', progress);
-  });
+  fileUpload.on('progress', (progress: any) => console.log('progress', progress));
 
   fileUpload.start();
 };

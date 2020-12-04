@@ -2,12 +2,14 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPaperPlane, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import { MessageType } from '../../api/models';
+
 import StyledModal from '../elements/StyledModal';
 
 interface ModalProps {
   selectedImage: string;
   onClose: () => void;
-  onUpload: (file: any) => void;
+  onUpload: (file: any, type: MessageType) => void;
 }
 
 const Modal = (props: ModalProps) => {
@@ -33,7 +35,10 @@ const Modal = (props: ModalProps) => {
       </div>
       <div className="modal--body">
         {ResponsiveImage(props.selectedImage, 529, 550)}
-        <div className="modal--body__fab" onClick={props.onUpload}>
+        <div
+          className="modal--body__fab"
+          onClick={() => props.onUpload('', MessageType.IMAGE)}
+        >
           <FontAwesomeIcon icon={faPaperPlane} size="3x" />
         </div>
       </div>

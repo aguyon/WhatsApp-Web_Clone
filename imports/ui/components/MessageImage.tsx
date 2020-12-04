@@ -9,13 +9,19 @@ interface MessageImageProps {
   mine: boolean;
   content: string;
   createdAt: string;
+  onImageClick: () => void;
 }
 
 const MessageImage = (props: MessageImageProps): JSX.Element => {
   const renderImage = (): JSX.Element => {
     return (
       <>
-        <img src={props.content} alt="img" className="image" />
+        <img
+          src={props.content}
+          alt="img"
+          className="image"
+          onClick={props.onImageClick}
+        />
         <div className="image--overlay">
           <div className="detailsContainer __date">
             <div className="image--date">

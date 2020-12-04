@@ -1,6 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Tracker } from 'meteor/tracker';
+import { Session } from 'meteor/session';
 import moment from 'moment';
 import 'moment/locale/fr';
 
@@ -46,22 +48,6 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
     setFabsVisible(false);
   };
 
-  const handleSendMessage = (content: string): void => {
-    const message: Message = {
-      chatId: props.selectedChat._id,
-      content,
-      createdAt: moment().toDate(),
-      senderId: Meteor.userId(),
-      type: MessageType.TEXT,
-      read: false,
-    };
-
-    Meteor.call('message.insert', message, (err, res) => {
-      if (err) console.log('error insert message');
-      else console.log('res', res);
-    });
-  };
-
   const handleInputClick = (): void => {
     const input = document.getElementById('fileUpload') as HTMLInputElement;
     input.click();
@@ -82,6 +68,38 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
     }
   };
 
+  const handleSendMessage = (content: string, type: MessageType): void => {
+    const message: Message = {
+      chatId: props.selectedChat._id,
+      content,
+      createdAt: moment().toDate(),
+      senderId: Meteor.userId(),
+      type,
+      read: false,
+    };
+
+    if (modalVisible) handleCloseModal();
+
+    Meteor.call('message.insert', message, (err, id) => {
+      if (err) console.log('error insert message');
+      else {
+        console.log('res', id);
+        uploadFile(fileInput, true);
+
+        Tracker.autorun(() => {
+          const imageUrl = Session.get('wc--imageUrl');
+
+          if (imageUrl && message.type === 'image') {
+            Meteor.call('message.update', id, imageUrl, (err, res) => {
+              if (err) console.log('error update message', err);
+              else console.log('ok', res);
+            });
+          }
+        });
+      }
+    });
+  };
+
   const avatarClick = (): void => {
     const otherId: string = findOtherId(props.selectedChat.participants);
     props.onAvatarClick(otherId);
@@ -100,7 +118,7 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
         <Modal
           selectedImage={selectedImage}
           onClose={handleCloseModal}
-          onUpload={() => uploadFile(fileInput, true)}
+          onUpload={handleSendMessage}
         />
       ) : (
         <React.Fragment>

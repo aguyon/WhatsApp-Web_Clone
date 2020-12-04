@@ -25,10 +25,9 @@ if (Meteor.isServer) {
   ImagesCollection.allowClient();
 
   Meteor.methods({
-    'images.url': function (_id: string) {
-      const Image = ImagesCollection.findOne(_id);
-      const url: string = Image.link();
-      return url;
+    'image.url': function (_id: string) {
+      const imageUrl = ImagesCollection.findOne(_id).link();
+      return imageUrl;
     },
   });
 }

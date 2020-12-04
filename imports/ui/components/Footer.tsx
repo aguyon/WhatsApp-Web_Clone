@@ -2,10 +2,12 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone, faPaperPlane, faSmile } from '@fortawesome/free-solid-svg-icons';
 
+import { MessageType } from '../../api/models';
+
 import StyledFooter from '../elements/StyledFooter';
 
 interface FooterProps {
-  onSend: (value: string) => void;
+  onSend: (value: string, type: MessageType) => void;
 }
 
 const Footer = (props: FooterProps): JSX.Element => {
@@ -20,8 +22,9 @@ const Footer = (props: FooterProps): JSX.Element => {
 
   const handleClick = (): void => {
     if (iconName === faMicrophone) return;
-    props.onSend(inputValue);
+    props.onSend(inputValue, MessageType.TEXT);
     setInputValue('');
+    setIconName(faMicrophone);
   };
 
   const handleKeyDown = (event): void => {

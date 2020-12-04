@@ -12,6 +12,7 @@ import StyledMessageBox from '../elements/StyledMessageBox';
 import Day from './Day';
 import MessageText from './MessageText';
 import FABs from './FABs';
+import MessageImage from './MessageImage';
 
 interface MessageBoxProps {
   onMessageClick: (messageId: string, type: string) => void;
@@ -58,20 +59,43 @@ const MessageBox = (props: MessageBoxProps): JSX.Element => {
   });
 
   const renderMessages = (message: any): JSX.Element[] => {
-    return message.groupedMessages.map((message) => {
-      const msgClass: string = `message message--${message.ownership}`;
-      return (
-        <MessageText
-          id={message._id}
-          onMessageClick={props.onMessageClick}
-          key={message._id}
-          msgClass={msgClass}
-          content={message.content}
-          ownership={message.ownership}
-          createdAt={message.createdAt}
-        />
-      );
-    });
+    return message.groupedMessages.map(
+      (message: {
+        _id: string;
+        content: string;
+        type: string;
+        ownership: string;
+        createdAt: string;
+      }) => {
+        const msgClass: string = `message message--${message.ownership}`;
+        if (message.type === 'image') {
+          const mine: boolean = message.ownership === 'mine';
+          return (
+            <React.Fragment key={message._id}>
+              <MessageImage
+                mine={mine}
+                content={message.content}
+                createdAt={message.createdAt}
+                onImageClick={() => props.onMessageClick(message._id, 'image')}
+              />
+            </React.Fragment>
+          );
+        }
+        return (
+          <React.Fragment key={message._id}>
+            <MessageText
+              id={message._id}
+              onMessageClick={props.onMessageClick}
+              key={message._id}
+              msgClass={msgClass}
+              content={message.content}
+              ownership={message.ownership}
+              createdAt={message.createdAt}
+            />
+          </React.Fragment>
+        );
+      }
+    );
   };
 
   const renderContent = (): JSX.Element[] => {
