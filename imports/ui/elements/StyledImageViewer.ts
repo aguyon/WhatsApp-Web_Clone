@@ -11,7 +11,7 @@ const StyledImageViewer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: ${({ theme }) => theme.bigOverlay.color.username};
+    color: ${({ theme }) => theme.color.primary};
     font-size: 2rem;
 
     span {
@@ -21,7 +21,7 @@ const StyledImageViewer = styled.div`
 
   .IV--icon {
     font-size: 2.5rem;
-    color: ${({ theme }) => theme.bigOverlay.color.icon};
+    color: ${({ theme }) => theme.color.icon};
     cursor: pointer;
     margin-left: auto;
   }

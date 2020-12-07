@@ -7,12 +7,12 @@ const StyledFooter = styled.footer`
   justify-content: space-between;
   width: calc(100% - 3.2rem);
   height: 6%;
-  background: ${({ theme }) => theme.footer.color.background};
+  background: ${({ theme }) => theme.color.message_footer_background};
   padding: 1rem 1.6rem;
   z-index: 1;
 
   .message--label {
-    background: ${({ theme }) => theme.footer.color.labelBackground};
+    background: ${({ theme }) => theme.color.message_input_background};
     border-radius: 1.8rem;
     padding-left: 2.5rem;
     padding-right: 2.2rem;
@@ -34,10 +34,11 @@ const StyledFooter = styled.footer`
     user-select: text;
     z-index: 1;
     border: none;
-    color: ${({ theme }) => theme.footer.color.input};
-    background-color: ${({ theme }) => theme.footer.color.inputBackground};
+    color: ${({ theme }) => theme.color.message_input};
+    background-color: ${({ theme }) => theme.color.message_input_background};
+
     &::placeholder {
-      color: ${({ theme }) => theme.footer.color.placeholder};
+      color: ${({ theme }) => theme.color.input_placeholder};
       opacity: 1;
       font-size: 1.4rem;
     }
@@ -45,7 +46,7 @@ const StyledFooter = styled.footer`
 
   .iconFooter {
     font-size: 3rem;
-    color: ${({ theme }) => theme.footer.color.iconFooter};
+    color: ${({ theme }) => theme.color.icon};
     cursor: pointer;
   }
 `;

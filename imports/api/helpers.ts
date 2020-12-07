@@ -88,19 +88,19 @@ export const uploadFile = (file: any, isMessage: boolean): void => {
     false
   );
 
-  fileUpload.on('start', () => console.log('start'));
+  // fileUpload.on('start', () => console.log('start'));
 
   fileUpload.on('end', (err: Error, fileObj: { _id: string }) => {
     if (err) console.log('err upload', err);
     else {
-      console.log('end', fileObj);
+      // console.log('end', fileObj);
       const _id: string = fileObj._id;
 
       if (isMessage) {
         Meteor.call('image.url', _id, (err: Error, url: string) => {
           if (err) console.log('err url : ', err);
           else {
-            console.log('url :', url);
+            // console.log('url :', url);
             Session.set('wc--imageUrl', url);
           }
         });
@@ -117,7 +117,7 @@ export const uploadFile = (file: any, isMessage: boolean): void => {
 
   fileUpload.on('err', (err: Error) => console.log('err', err));
 
-  fileUpload.on('progress', (progress: any) => console.log('progress', progress));
+  // fileUpload.on('progress', (progress: any) => console.log('progress', progress));
 
   fileUpload.start();
 };

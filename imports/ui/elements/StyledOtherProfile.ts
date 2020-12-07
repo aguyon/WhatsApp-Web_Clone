@@ -3,11 +3,11 @@ import styled from 'styled-components';
 const StyledOtherProfile = styled.div`
   width: 35%;
   height: 100%;
-  background: ${({ theme }) => theme.otherProfile.color.background};
+  background: ${({ theme }) => theme.color.drawer_background};
   display: flex;
   flex-direction: column;
   z-index: 1;
-  border-left: ${({ theme }) => '0.1rem solid ' + theme.otherProfile.color.borderLeft};
+  border-left: ${({ theme }) => '0.1rem solid ' + theme.color.border};
 
   // .__scroll {
   //   overflow-y: scroll;
@@ -45,7 +45,7 @@ const StyledOtherProfile = styled.div`
 
   .OPH--title {
     font-size: 1.6rem;
-    color: ${({ theme }) => theme.header.color.title};
+    color: ${({ theme }) => theme.color.primary_strong};
   }
 
   .OP--imageContainer {
@@ -57,7 +57,7 @@ const StyledOtherProfile = styled.div`
     height: calc(31.8rem - 5.6rem);
     padding: 2.8rem;
     padding-bottom: 1.7rem;
-    background: ${({ theme }) => theme.otherProfile.color.item};
+    background: ${({ theme }) => theme.color.drawer_section_background};
     margin-bottom: 1rem;
   }
 
@@ -79,13 +79,13 @@ const StyledOtherProfile = styled.div`
   }
 
   .OPIC--title {
-    color: ${({ theme }) => theme.header.color.title};
+    color: ${({ theme }) => theme.color.primary_strong};
     font-size: 1.9rem;
     margin-bottom: 0.7rem;
   }
 
   .OPIC--subTitle {
-    color: ${({ theme }) => theme.header.color.subTitle};
+    color: ${({ theme }) => theme.color.secondary_lighter};
     font-size: 1.4rem;
   }
 `;

@@ -60,7 +60,7 @@ const StyledMessageBox = styled.div`
   }
 
   .day--wrapper {
-    background: ${({ theme }) => theme.messageBox.color.dayWrapper};
+    background: ${({ theme }) => theme.color.message_sended_date_background};
     border-radius: 0.7rem;
     padding: 0.6rem 1.2rem;
     text-align: center;
@@ -72,7 +72,7 @@ const StyledMessageBox = styled.div`
   }
 
   .day--span {
-    color: ${({ theme }) => theme.messageBox.color.dayspan};
+    color: ${({ theme }) => theme.color.message_sended_date_text};
     font-size: 1.25rem;
     text-transform: uppercase;
   }
@@ -89,8 +89,8 @@ const StyledMessageBox = styled.div`
     flex-direction: row;
     align-items: center;
     font-size: 1.4rem;
-    color: ${({ theme }) => theme.messageBox.color.message};
-    background: ${({ theme }) => theme.messageBox.color.messageBackground};
+    color: ${({ theme }) => theme.color.message_primary};
+    background: ${({ theme }) => theme.color.message_incoming_background};
     border-radius: 0.7rem;
     margin-bottom: 0.2rem;
     width: auto;
@@ -109,11 +109,11 @@ const StyledMessageBox = styled.div`
     right: -0.7rem;
     width: 5.5rem;
     margin-left: 5rem;
-    color: ${({ theme }) => theme.messageBox.color.detailsContainer};
+    color: ${({ theme }) => theme.color.message_secondary};
   }
 
   .message--mine {
-    background: ${({ theme }) => theme.messageBox.color.messageMineBackground};
+    background: ${({ theme }) => theme.color.message_outgoing_background};
     margin-left: auto;
     align-items: flex-end;
   }

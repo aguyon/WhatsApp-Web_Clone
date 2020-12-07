@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const StyledChatList = styled.div`
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.chatList.color.background};
+  background: ${({ theme }) => theme.color.background_default};
   width: 100%;
-  height: 80%;
+  height: 82%;
   overflow-y: auto;
   position: relative;
 
@@ -14,16 +14,12 @@ const StyledChatList = styled.div`
   }
 
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: ${({ theme }) => theme.color.scrollbar_track_background};
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: ${({ theme }) => theme.color.scrollbar_thumb_background};
     border-radius: 0.2rem;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
   }
 `;
 

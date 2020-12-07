@@ -53,10 +53,10 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
     input.click();
   };
 
-  let fileInput: any;
+  let fileInput = React.useRef<File>();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    fileInput = event.target.files[0];
+    fileInput.current = event.target.files[0];
 
     if (fileInput) {
       setModalVisible(true);
@@ -64,7 +64,7 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
       fileReader.onload = function (e) {
         setSelectedImage(e.target.result);
       };
-      fileReader.readAsDataURL(fileInput);
+      fileReader.readAsDataURL(fileInput.current);
     }
   };
 
@@ -83,8 +83,8 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
     Meteor.call('message.insert', message, (err, id) => {
       if (err) console.log('error insert message');
       else {
-        console.log('res', id);
-        uploadFile(fileInput, true);
+        // console.log('res', id);
+        uploadFile(fileInput.current, true);
 
         Tracker.autorun(() => {
           const imageUrl = Session.get('wc--imageUrl');
@@ -92,7 +92,7 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
           if (imageUrl && message.type === 'image') {
             Meteor.call('message.update', id, imageUrl, (err, res) => {
               if (err) console.log('error update message', err);
-              else console.log('ok', res);
+              // else console.log('ok', res);
             });
           }
         });
@@ -107,7 +107,7 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
 
   return (
     <StyledMessageView>
-      <Header iconClass="greyIcon" icons={icons}>
+      <Header icons={icons}>
         <Avatar avatar_url={props.selectedChat.picture} onAvatarClick={avatarClick} />
         <div className="headerMsg--container">
           <span className="headerMsg--title">{props.selectedChat.title}</span>

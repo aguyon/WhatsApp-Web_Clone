@@ -134,7 +134,7 @@ const Main = (props: MainProps) => {
   };
 
   const handleCloseBigOverlay = (): void => {
-    setVisibleBigOverlay((prevState) => {
+    setVisibleBigOverlay(() => {
       return {
         image: {
           visible: false,
@@ -160,8 +160,8 @@ const Main = (props: MainProps) => {
       <StyledMain>
         {!props.loading ? (
           <React.Fragment>
-            {/* <button onClick={props.toggleTheme}>Changer thème</button> */}
             <MainLeft
+              toggleTheme={props.toggleTheme}
               chats={props.chats}
               onChatClick={handleChatClick}
               selectedChat={selectedChat}
@@ -171,6 +171,7 @@ const Main = (props: MainProps) => {
             <MainRight
               theme={props.theme}
               right
+              border
               visibleMessage={visibleMessage}
               selectedChat={selectedChat}
               onAvatarClick={handleAvatarClick}
@@ -182,13 +183,13 @@ const Main = (props: MainProps) => {
                 <Popup
                   title={visibleBigOverlay.popup.title}
                   onCancel={handleCloseBigOverlay}
-                  onDelete={handleDeleteMessage}
+                  onConfirm={handleDeleteMessage}
                 />
               </BigOverlay>
             ) : null}
 
             {visibleBigOverlay.image.visible ? (
-              <BigOverlay>
+              <BigOverlay avatarBigOverlay>
                 <ImageViewer
                   imageUrl={visibleBigOverlay.image.url}
                   username={visibleBigOverlay.image.username}
@@ -214,7 +215,7 @@ const Main = (props: MainProps) => {
 };
 
 const StyledMainContainer = styled.div`
-  background-color: ${({ theme }) => theme.main.color.background};
+  background-color: ${({ theme }) => theme.color.app_background_secondary};
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -223,12 +224,12 @@ const StyledMainContainer = styled.div`
 `;
 
 const StyledMainHeaderColor = styled.div`
-  background-color: ${({ theme }) => theme.main.color.header};
+  background-color: ${({ theme }) => theme.color.app_background_primary};
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 127px;
+  height: 132px;
   z-index: 1;
 `;
 

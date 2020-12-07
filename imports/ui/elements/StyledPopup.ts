@@ -13,7 +13,7 @@ const StyledPopup = styled.div`
     overflow: hidden;
     flex-direction: column;
     width: 35rem;
-    background-color: ${({ theme }) => theme.popup.color.background};
+    background-color: ${({ theme }) => theme.color.popup_background};
     border-radius: 0.3rem;
     box-shadow: 0 1.7rem 5rem 0 rgba(0, 0, 0, 0.19), 0 1.2rem 1.5rem 0 rgba(0, 0, 0, 0.24);
     padding: 2.2rem 2.4rem 2rem;
@@ -23,7 +23,7 @@ const StyledPopup = styled.div`
     font-size: 2rem;
     font-weight: 400;
     text-align: left;
-    color: ${({ theme }) => theme.popup.color.title};
+    color: ${({ theme }) => theme.color.primary_strong};
   }
 
   .popup--buttonContainer {
@@ -38,7 +38,7 @@ const StyledPopup = styled.div`
     padding: 1rem 1.4rem;
     border-radius: 3px;
     margin-left: 5px;
-    color: ${({ theme }) => theme.popup.color.button};
+    color: ${({ theme }) => theme.color.button_primary};
     text-transform: uppercase;
     font-size: 1.4rem;
     font-weight: 400;
@@ -46,18 +46,18 @@ const StyledPopup = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color: ${({ theme }) => theme.popup.color.hover};
+      background-color: ${({ theme }) => theme.color.button_primary_hover};
       box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.06),
         0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.2);
     }
   }
 
   .delete {
-    background: ${({ theme }) => theme.popup.color.button};
-    color: ${({ theme }) => theme.popup.color.background};
+    background: ${({ theme }) => theme.color.button_primary};
+    color: ${({ theme }) => theme.color.background_default};
 
     &:hover {
-      background-color: ${({ theme }) => theme.popup.color.hoverDelete};
+      background-color: ${({ theme }) => theme.color.button_secondary_hover};
       box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.06),
         0 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.2);
     }

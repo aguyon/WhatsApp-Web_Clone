@@ -5,7 +5,7 @@ const StyledMainLeft = styled.div`
   flex-direction: column;
   width: 35%;
   height: 100%;
-  border-right: ${({ theme }) => '0.1rem solid ' + theme.left.color.borderRight};
+  border-right: ${({ theme }) => '0.1rem solid ' + theme.color.border};
   z-index: 1;
 `;
 

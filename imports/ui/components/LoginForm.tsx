@@ -30,6 +30,12 @@ const LoginForm = (props: LoginProps): JSX.Element => {
     }));
   };
 
+  const handleKeyDown = (event): void => {
+    if (event.key === 'Enter') {
+      props.onLogin(state);
+    }
+  };
+
   const validateForm = () => username.length > 0 && password.length > 0;
 
   return (
@@ -60,6 +66,7 @@ const LoginForm = (props: LoginProps): JSX.Element => {
           type="password"
           value={password}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
         />
       </label>
       <button

@@ -3,13 +3,10 @@ import styled from 'styled-components';
 import StyledChatList from './StyledChatList';
 
 const StyledUsersList = styled(StyledChatList)`
-  height: 80%;
-
   .letter {
     font-size: 1.6rem;
-    color: ${({ theme }) => theme.leftSide.color.border};
+    color: ${({ theme }) => theme.color.teal};
     text-transform: uppercase;
-    background: ${({ theme }) => theme.leftSide.color.letter};
     padding: 3rem 0 1.5rem 3.2rem;
   }
 `;

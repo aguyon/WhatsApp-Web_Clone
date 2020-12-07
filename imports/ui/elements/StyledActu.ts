@@ -6,7 +6,7 @@ const StyledActu = styled.div`
   width: calc(100% - 3rem);
   /* height: calc(13.4rem - 1.4rem); */
   height: auto;
-  background: ${({ theme }) => theme.otherProfile.color.item};
+  background: ${({ theme }) => theme.color.drawer_section_background};
   padding-left: 3rem;
   padding-top: 1.4rem;
   margin-bottom: 1rem;
@@ -22,20 +22,20 @@ const StyledActu = styled.div`
     font-size: 1.6rem;
     margin-bottom: 1.9rem;
     font-weight: 500;
-    color: ${({ theme }) => theme.otherProfile.color.content};
+    color: ${({ theme }) => theme.color.primary_strong};
   }
 
   .actu--divider {
     width: 100%;
     height: 0.1rem;
-    background: ${({ theme }) => theme.otherProfile.color.divider};
+    background: ${({ theme }) => theme.color.border_strong};
     margin-bottom: 1.9rem;
   }
 
   .actu--phone {
     font-size: 1.6rem;
     margin-bottom: 1.9rem;
-    color: ${({ theme }) => theme.otherProfile.color.content};
+    color: ${({ theme }) => theme.color.primary_strong};
   }
 `;
 

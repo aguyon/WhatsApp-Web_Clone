@@ -18,7 +18,8 @@ export const StyledMain = styled.div`
 
   margin: 0 auto;
   position: relative;
-  box-shadow: 0 1px 1px 0 rgba(82, 82, 82, 0.06), 0 2px 5px 0 rgba(82, 82, 82, 0.2);
+  box-shadow: ${({ theme }) =>
+    `0 1px 1px 0 rgba(${theme.color.shadow}, 0.06), 0 2px 5px 0 rgba(${theme.color.shadow}, 0.2)`};
 `;
 
 export default StyledMain;

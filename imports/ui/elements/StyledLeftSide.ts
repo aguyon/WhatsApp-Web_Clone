@@ -5,14 +5,14 @@ const StyledLeftSide = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.leftSide.color.background};
+  background: ${({ theme }) => theme.color.background_default};
 
   .LS--header {
     display: flex;
     flex-direction: column;
-    background: ${({ theme }) => theme.leftSide.color.header};
+    background: ${({ theme }) => theme.color.panel_header_background};
     width: calc(100% - 4.6rem);
-    height: auto;
+    height: 64px;
     padding: 4.9rem 2.3rem;
     padding-bottom: 0rem;
   }
@@ -48,7 +48,7 @@ const StyledLeftSide = styled.div`
     font-size: 1.4rem;
     height: 4rem;
     width: calc(100% - 6rem);
-    color: #929fa6;
+    color: ${({ theme }) => theme.color.secondary_lighter};
   }
 `;
 

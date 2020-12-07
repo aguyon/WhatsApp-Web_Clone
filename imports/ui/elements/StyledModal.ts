@@ -11,7 +11,7 @@ const StyledModal = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: ${({ theme }) => theme.modal.color.header};
+    background: ${({ theme }) => theme.color.modal_header};
     padding-left: 2.5rem;
     height: 8%;
     width: calc(100% - 2.5rem);
@@ -38,7 +38,7 @@ const StyledModal = styled.div`
     align-items: center;
     width: 100%;
     height: inherit;
-    background: ${({ theme }) => theme.modal.color.body.background};
+    background: ${({ theme }) => theme.color.modal_image_background};
   }
 
   .responsive-image {
@@ -66,7 +66,7 @@ const StyledModal = styled.div`
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
-    background: ${({ theme }) => theme.modal.color.body.fab};
+    background: ${({ theme }) => theme.color.button_round_background};
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     color: white;
@@ -80,7 +80,7 @@ const StyledModal = styled.div`
     height: 20rem;
     width: calc(100% - 4rem);
     padding: 0 2rem;
-    background: ${({ theme }) => theme.modal.color.footer.background};
+    background: ${({ theme }) => theme.color.modal_footer};
   }
 
   .modal--footer__box {
@@ -91,9 +91,9 @@ const StyledModal = styled.div`
     width: calc(9.5rem - 0.8rem);
     height: calc(9.5rem - 0.8rem);
     padding: 0.4rem;
-    background: ${({ theme }) => theme.modal.color.footer.addBtnBg};
+    background: ${({ theme }) => theme.color.button_alternative_background};
     margin-right: 0.8rem;
-    color: ${({ theme }) => theme.modal.color.footer.addBtn};
+    color: ${({ theme }) => theme.color.button_alternative};
     cursor: pointer;
 
     span {

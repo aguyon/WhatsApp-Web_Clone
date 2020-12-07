@@ -38,7 +38,7 @@ const ChatItem = (props: ChatItemProps): JSX.Element => {
 
   return (
     <StyledChatItem active={props.active} onClick={() => props.onChatClick(props.id)}>
-      <Avatar large avatar_url={props.picture} />
+      <Avatar md avatar_url={props.picture} />
       <div className="chat--contentContainer">
         <div className="content--line1">
           <span className="content--line1__title">{props.title}</span>

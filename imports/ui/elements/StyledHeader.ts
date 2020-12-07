@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   width: calc(100% - 3.2rem);
   height: 3rem;
-  background: ${({ theme }) => theme.header.color.background};
+  background: ${({ theme }) => theme.color.header_background};
   padding: 1.5rem 1.6rem;
   z-index: 1;
 
@@ -24,10 +24,22 @@ const StyledHeader = styled.header`
     width: 4rem;
   }
 
-  .greyIcon {
-    color: ${({ theme }) => theme.header.color.iconGrey};
+  .icon {
+    color: ${({ theme }) => theme.color.icon};
     font-size: 2rem;
     cursor: pointer;
+  }
+
+  .icon--active {
+    color: ${({ theme }) => theme.color.icon};
+    font-size: 2rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.8rem;
+    margin-left: -5px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.color.header_icon_active};
   }
 
   .headerMsg--container {
@@ -41,12 +53,12 @@ const StyledHeader = styled.header`
   }
 
   .headerMsg--title {
-    color: ${({ theme }) => theme.header.color.title};
+    color: ${({ theme }) => theme.color.primary_strong};
     font-size: 1.6rem;
   }
 
   .headerMsg--subtitle {
-    color: ${({ theme }) => theme.header.color.subTitle};
+    color: ${({ theme }) => theme.color.secondary};
     font-size: 1.3rem;
   }
 `;

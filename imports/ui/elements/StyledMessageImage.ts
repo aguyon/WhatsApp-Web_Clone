@@ -15,7 +15,7 @@ const StyledMessageImage = styled.div`
   ${(props) =>
     props.mine &&
     css`
-      background: ${({ theme }) => theme.messageBox.color.messageMineBackground};
+      background: ${({ theme }) => theme.color.message_outgoing_background};
       margin-left: auto;
       .__date {
         position: relative !important;
@@ -44,11 +44,7 @@ const StyledMessageImage = styled.div`
   }
 
   .image--date {
-    color: white;
-  }
-
-  .image--date__mine {
-    color: ${({ theme }) => theme.messageBox.color.detailsContainer};
+    color: ${({ theme }) => theme.color.message_secondary};
   }
 `;
 

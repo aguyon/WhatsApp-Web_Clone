@@ -6,6 +6,7 @@ import StyledAvatar from '../elements/StyledAvatar';
 import { uploadFile } from '../../api/helpers';
 
 export interface AvatarProps {
+  md?: boolean;
   large?: boolean;
   big?: boolean;
   avatar_url?: string;
@@ -43,7 +44,7 @@ const Avatar: React.FC<AvatarProps> = (props): JSX.Element => {
   };
 
   return (
-    <StyledAvatar large={props.large} big={props.big}>
+    <StyledAvatar md={props.md} large={props.large} big={props.big}>
       <img
         src={props.avatar_url}
         alt="avatar"

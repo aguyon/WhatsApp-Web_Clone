@@ -10,12 +10,12 @@ const StyledActuItem = styled.div`
   cursor: pointer;
   font-size: 1.6rem;
   margin-bottom: 1rem;
-  background: ${({ theme }) => theme.otherProfile.color.item};
-  color: ${({ theme }) => theme.otherProfile.color.content};
+  background: ${({ theme }) => theme.color.drawer_section_background};
+  color: ${({ theme }) => theme.color.primary_strong};
   font-weight: 500;
 
   &:hover {
-    background: ${({ theme }) => theme.otherProfile.color.hoverItem};
+    background: ${({ theme }) => theme.color.hover};
   }
 
   ${(props) =>

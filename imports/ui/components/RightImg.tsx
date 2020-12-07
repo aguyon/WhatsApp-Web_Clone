@@ -7,11 +7,12 @@ interface RightImgProps {
   theme?: string;
   messageText: string;
   right?: boolean;
+  border?: boolean;
 }
 
 const RightImg: React.FC<RightImgProps> = (props): JSX.Element => {
   return (
-    <StyledRightImg right={props.right}>
+    <StyledRightImg right={props.right} border={props.border}>
       <StyledContent>
         <img
           alt="background"

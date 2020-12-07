@@ -7,7 +7,7 @@ import StyledAvatar from '../elements/StyledAvatar';
 
 const Status: React.FC = (props): JSX.Element => {
   return (
-    <StyledStatus color="blue">
+    <StyledStatus>
       <StyledAvatar>
         <FontAwesomeIcon icon={faBellSlash} size="2x" className="icon--color" />
       </StyledAvatar>

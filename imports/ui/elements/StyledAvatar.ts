@@ -7,18 +7,26 @@ const StyledAvatar = styled.div`
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
-  background: ${({ theme }) => theme.avatar.color.background};
+  background: ${({ theme }) => theme.color.status_notification_icon};
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
   ${(props: AvatarProps) =>
-    props.large &&
+    props.md &&
     css`
       width: 4.9rem;
       height: 4.9rem;
       border-radius: 2.45rem;
+    `}
+
+  ${(props: AvatarProps) =>
+    props.large &&
+    css`
+      width: 9.6rem;
+      height: 9.6rem;
+      border-radius: 50%;
     `}
 
   ${(props: AvatarProps) =>

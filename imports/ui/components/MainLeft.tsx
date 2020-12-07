@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
@@ -15,12 +16,16 @@ import LeftSide from './LeftSide/LeftSide';
 import LeftSideHeader from './LeftSide/LeftSideHeader';
 import Form from './LeftSide/Form';
 import UsersList from './LeftSide/UsersList';
+import Dropdown from './Dropdown';
+import Settings from './LeftSide/Settings';
 
 interface MainLeftProps {
   // Props withTracker
+  userInfos: { username: string; status: string };
   picture: string;
 
   // Props Main
+  toggleTheme: () => void;
   chats: Chat[];
   onChatClick: (id: string) => void;
   selectedChat: Chat;
@@ -30,26 +35,59 @@ interface MainLeftProps {
 const MainLeft = (props: MainLeftProps): JSX.Element => {
   const [leftSideVisible, setLeftSideVisible] = React.useState<boolean>(false);
   const [usersListVisible, setUsersListVisible] = React.useState<boolean>(false);
+  const [settingsVisible, setSettingsVisible] = React.useState<boolean>(false);
+  const [dropdownVisible, setDropdownVisible] = React.useState<boolean>(false);
   const [searchedValue, setSearchedValue] = React.useState<string>('');
   const [searchedUsers, setSearchedUsers] = React.useState<User[]>([]);
 
-  const icons: { icon: string; onClick?: () => void }[] = [
-    { icon: 'circle-notch' },
-    { icon: 'comment-alt', onClick: () => showUsersList() },
-    { icon: 'ellipsis-v' },
+  let history = useHistory();
+
+  const icons: { id: number; icon: string; onClick?: () => void }[] = [
+    { id: 1, icon: 'circle-notch' },
+    { id: 2, icon: 'comment-alt', onClick: () => showUsersList() },
+    { id: 3, icon: 'ellipsis-v', onClick: () => toggleMenu() },
+  ];
+
+  const menuItems: { item: string; onClick?: () => void }[] = [
+    { item: 'Nouveau groupe' },
+    { item: 'Profil', onClick: () => toggleLeftSide() },
+    { item: 'Paramètres', onClick: () => showSettings() },
+    { item: 'Déconnexion', onClick: () => logout() },
   ];
 
   const showUsersList = (): void => {
     setLeftSideVisible(true);
     setUsersListVisible(true);
+    setSettingsVisible(false);
+  };
+
+  const toggleMenu = (): void => {
+    setDropdownVisible(!dropdownVisible);
   };
 
   const toggleLeftSide = (): void => {
-    if (!leftSideVisible) setLeftSideVisible(true);
-    else {
+    if (!leftSideVisible) {
+      setLeftSideVisible(true);
+      setDropdownVisible(false);
+    } else {
       setLeftSideVisible(false);
       setUsersListVisible(false);
+      setDropdownVisible(false);
+      setSettingsVisible(false);
     }
+  };
+
+  const showSettings = (): void => {
+    setLeftSideVisible(true);
+    setUsersListVisible(false);
+    setSettingsVisible(true);
+  };
+
+  const logout = (): void => {
+    Meteor.logout((err: Error) => {
+      if (err) console.log('error logout', err);
+      else history.replace('/login');
+    });
   };
 
   const userItemClick = (id: string, username: string, picture: string): void => {
@@ -89,6 +127,18 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
           />
         </>
       );
+    } else if (settingsVisible) {
+      return (
+        <>
+          <LeftSideHeader title="Paramètres" onLeftSideHeaderClose={toggleLeftSide} />
+          <Settings
+            avatarUrl={props.picture}
+            userInfos={props.userInfos}
+            setSettingsVisible={setSettingsVisible}
+            toggleTheme={props.toggleTheme}
+          />
+        </>
+      );
     }
     return (
       <>
@@ -112,8 +162,9 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
     <StyledMainLeft>
       {!leftSideVisible ? (
         <>
-          <Header icons={icons} iconClass="greyIcon">
+          <Header icons={icons} dropdownVisible={dropdownVisible}>
             <Avatar avatar_url={props.picture} onAvatarClick={toggleLeftSide} />
+            {dropdownVisible ? <Dropdown menuItems={menuItems} /> : null}
           </Header>
           <Status />
           <SearchBar
@@ -135,6 +186,10 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
 
 export default withTracker(() => {
   return {
+    userInfos: {
+      username: Meteor.user().username,
+      status: Meteor.user().profile.status,
+    },
     picture: Meteor.user().profile.picture,
   };
 })(MainLeft);

@@ -27,7 +27,7 @@ const OtherProfile = (props: OtherProfileProps): JSX.Element => {
     <StyledOtherProfile>
       {otherUser ? (
         <>
-          <Header iconClass="greyIcon">
+          <Header>
             <div className="OPH--heading">
               <FontAwesomeIcon
                 icon={faTimes}

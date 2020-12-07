@@ -5,9 +5,9 @@ import StyledHeader from '../elements/StyledHeader';
 
 interface HeaderProps {
   children: ReactNode;
-  icons?: { icon: string; onClick?: () => void }[];
-  iconClass: string;
+  icons?: { id?: number; icon: string; onClick?: () => void }[];
   iconsSmallWidth?: boolean;
+  dropdownVisible?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = (props): JSX.Element => {
@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = (props): JSX.Element => {
         <FontAwesomeIcon
           key={index}
           icon={['fas', item.icon]}
-          className={props.iconClass}
+          className={item.id !== 3 || !props.dropdownVisible ? 'icon' : 'icon--active'}
           onClick={item.onClick}
         />
       );

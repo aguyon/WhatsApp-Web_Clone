@@ -17,7 +17,7 @@ const UserItem = (props: UserItemProps): JSX.Element => {
     <StyledUserItem
       onClick={() => props.onUserItemClick(props.id, props.username, props.picture)}
     >
-      <Avatar large avatar_url={props.picture} />
+      <Avatar md avatar_url={props.picture} />
       <div className="chat--contentContainer">
         <div className="content--line1">
           <span className="content--line1__title">{props.username}</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import Login from '../pages/Login';
@@ -8,7 +8,7 @@ import Main from '../pages/Main';
 import LightTheme from './theme/LightTheme';
 import DarkTheme from './theme/DarkTheme';
 
-const App = (props: any): JSX.Element => {
+const App = (): JSX.Element => {
   const [theme, setTheme] = React.useState<string>('light');
 
   const toggleTheme = () => {
@@ -33,6 +33,9 @@ const App = (props: any): JSX.Element => {
             path="/"
             render={() => <Main theme={themeSelected} toggleTheme={toggleTheme} />}
           />
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
         </Switch>
       </Router>
     </ThemeProvider>

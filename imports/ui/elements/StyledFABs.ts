@@ -2,15 +2,16 @@ import styled, { css } from 'styled-components';
 
 const StyledFABs = styled.div`
   display: none;
-  position: fixed;
   z-index: 200;
 
-  // @media screen and (min-width: 1441px) {
-  //   top: 5.5rem;
-  //   right: 5.4rem;
-  // }
+  @media screen and (min-width: 1441px) {
+    position: absolute;
+    top: -0.5rem;
+    right: 5.6rem;
+  }
 
   @media screen and (max-width: 1440px) {
+    position: fixed;
     top: 5.5rem;
     right: 5.4rem;
   }
@@ -37,7 +38,8 @@ const StyledFABs = styled.div`
     width: 5.1rem;
     height: 5.1rem;
     border-radius: 50%;
-    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.17), 0 0.6rem 0.8rem rgba(0, 0, 0, 0.29);
+    box-shadow: ${({ theme }) =>
+      `0 2px 2px 0 rgba(${theme.color.shadow}, 0.17), 0 6px 8px 0 rgba(${theme.color.shadow}, 0.29)`};
   }
 
   .fab--icon {

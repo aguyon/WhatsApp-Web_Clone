@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledLoginForm = styled.div`
   .label {
-    background: ${({ theme }) => theme.searchBar.color.labelBackground};
+    background: ${({ theme }) => theme.color.login_input_background};
     border-radius: 0.7rem;
     padding-left: 2.5rem;
     padding-right: 2.2rem;
@@ -16,7 +16,7 @@ const StyledLoginForm = styled.div`
   }
 
   .icon {
-    color: ${({ theme }) => theme.searchBar.color.icon};
+    color: ${({ theme }) => theme.color.icon};
     font-size: 1.3rem;
     margin-right: 1.5rem;
   }
@@ -31,17 +31,18 @@ const StyledLoginForm = styled.div`
     user-select: text;
     z-index: 1;
     border: none;
-    color: ${({ theme }) => theme.searchBar.color.input};
+    color: ${({ theme }) => theme.color.login_input_text};
+    background: ${({ theme }) => theme.color.background_active};
+
     &::placeholder {
-      color: ${({ theme }) => theme.searchBar.color.placeholder};
+      color: ${({ theme }) => theme.color.input_placeholder};
       opacity: 1;
       font-size: 1.4rem;
     }
-    background: ${({ theme }) => theme.searchBar.color.inputBackground};
 
     &:-webkit-autofill {
       -webkit-background-clip: text;
-      -webkit-text-fill-color: ${({ theme }) => theme.searchBar.color.input} !important;
+      -webkit-text-fill-color: ${({ theme }) => theme.color.login_input_text} !important;
     }
   }
 
@@ -52,7 +53,7 @@ const StyledLoginForm = styled.div`
     height: 3.5rem;
     font-size: 1.4rem;
     font-weight: bold;
-    background: ${({ theme }) => theme.rightImg.color.darkGreen};
+    background: ${({ theme }) => theme.color.teal};
     color: white;
     margin-top: 0.3rem;
     outline: none;
@@ -65,7 +66,7 @@ const StyledLoginForm = styled.div`
 
     &:disabled,
     &[disabled] {
-      background-color: ${({ theme }) => theme.rightImg.color.mediumGrey};
+      background-color: ${({ theme }) => theme.color.button_disabled};
     }
   }
 `;

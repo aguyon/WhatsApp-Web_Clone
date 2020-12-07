@@ -27,7 +27,7 @@ const MessageImage = (props: MessageImageProps): JSX.Element => {
             <div className="image--date">
               <Moment format="HH:mm">{props.createdAt}</Moment>
             </div>
-            {props.mine ? <FontAwesomeIcon icon={faCheckDouble} color="white" /> : null}
+            {props.mine ? <FontAwesomeIcon icon={faCheckDouble} /> : null}
           </div>
         </div>
       </>

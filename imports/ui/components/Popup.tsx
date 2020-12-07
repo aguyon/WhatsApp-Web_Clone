@@ -5,7 +5,7 @@ import StyledPopup from '../elements/StyledPopup';
 interface PopupProps {
   title: string;
   onCancel: () => void;
-  onDelete: () => void;
+  onConfirm: () => void;
 }
 
 const Popup = (props: PopupProps): JSX.Element => {
@@ -17,7 +17,7 @@ const Popup = (props: PopupProps): JSX.Element => {
           <div className="popup--button" onClick={props.onCancel}>
             Annuler
           </div>
-          <div className="popup--button delete" onClick={props.onDelete}>
+          <div className="popup--button delete" onClick={props.onConfirm}>
             Supprimer pour moi
           </div>
         </div>

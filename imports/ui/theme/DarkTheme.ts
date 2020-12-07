@@ -1,148 +1,88 @@
 const DarkTheme: object = {
-  main: {
-    color: {
-      background: '#090E11',
-    },
-  },
-  header: {
-    color: {
-      iconGrey: '#828689',
-      background: '#2A2F32',
-      title: '#E1E2E3',
-      subTitle: '#A1A3A5',
-    },
-  },
-  leftStatus: {
-    color: {
-      bgBlue: '#085373',
-      bgOrange: '#fed859',
-      textGrey: '#E8EBEE',
-      spanGrey: '#B7CAD2',
-    },
-  },
-  chatList: {
-    color: {
-      background: '#131C21',
-    },
-  },
-  chatItem: {
-    color: {
-      bgGreen: '#00AF9C',
-      message: '#A9AAAC',
-      badge: 'white',
-      title: '#E2E2E3',
-      date: '#CBCCCD',
-      backgroundActive: '#2D3134',
-      backgroundNormal: '#131C21',
-      borderBottom: '#3C4247',
-    },
-  },
-  searchBar: {
-    color: {
-      background: '#131C21',
-      labelBackground: '#323739',
-      icon: '#828689',
-      input: 'white',
-      placeholder: '#828587',
-      inputBackground: '#323739',
-    },
-  },
-  footer: {
-    color: {
-      background: '#1E2428',
-      labelBackground: '#323739',
-      input: 'white',
-      inputBackground: '#323739',
-      placeholder: '#777B7D',
-      iconFooter: '#828689',
-    },
-  },
-  messageBox: {
-    color: {
-      dayWrapper: '#1E2A30',
-      dayspan: '#ADB1B4',
-      message: '#D4DCDC',
-      messageBackground: '#262D31',
-      detailsContainer: 'rgba(0,0,0,0.45)',
-      messageMineBackground: '#054740',
-    },
-  },
-  rightImg: {
-    color: {
-      darkGrey: '#D9D9DB',
-      mediumGrey: '#939698',
-      lightGrey: '#D9D9DB',
-      bgGrey: '#262D31',
-      bgGreen: '#09D261',
-      darkGreen: '#1C8B82',
-    },
-  },
-  left: {
-    color: {
-      borderRight: '#3C4247',
-    },
-  },
-  avatar: {
-    color: {
-      background: '#8EB2BE',
-    },
-  },
-  spinner: {
-    color: {
-      green: '#09D261',
-    },
-  },
-  modal: {
-    color: {
-      header: '#323739',
-      body: {
-        background: '#1E2429',
-        fab: '#00AF9C',
-      },
-      footer: {
-        background: '#191F23',
-        addBtn: '#68BBE4',
-        addBtnBg: '#262D31',
-      },
-    },
-  },
-  leftSide: {
-    color: {
-      background: '#131C21',
-      header: '#323739',
-      letter: '#131C21',
-      form: '#131C21',
-      input: '#C9CACC',
-      border: '#00AF9C',
-      icon: '#828689',
-    },
-  },
-  otherProfile: {
-    color: {
-      background: '#0D1418',
-      item: '#131C21',
-      title: '#066C65',
-      content: '#CACBCD',
-      divider: '#30383D',
-      borderLeft: '#3C4247',
-      hoverItem: '#2D3134',
-    },
-  },
-  bigOverlay: {
-    color: {
-      background: 'hsla(201, 27%, 10%, 0.95)',
-      icon: '#C5C6C8',
-      username: '#DBDCDD',
-    },
-  },
-  popup: {
-    color: {
-      background: '#3B4042',
-      title: '#C1C3C5',
-      button: '#00AF9C',
-      hover: '#44494B',
-      hoverDelete: '#00C3AE',
-    },
+  color: {
+    app_background_primary: '#090E11',
+    app_background_secondary: '#090E11',
+
+    background_default: '#131C21',
+    background_active: '#323739',
+
+    button_alternative_background: '#262D31',
+    button_alternative: '#68BBE4',
+    button_disabled: '#939698',
+    button_primary: '#00AF9C',
+    button_primary_hover: '#44494B',
+    button_round_background: '#00AF9C',
+    button_secondary_hover: '#00C3AE',
+
+    border: 'rgba(241,241,242,0.12)',
+    border_list: '#30383D',
+    border_strong: 'rgba(241,241,242,0.11)',
+
+    hover: '#2D3134',
+    icon: '#828689',
+    input_placeholder: 'rgba(241,241,242,0.43)',
+
+    primary: '#D4D5D7',
+    primary_strong: 'rgba(241,241,242,0.92)',
+
+    teal: '#009688',
+
+    secondary: 'rgba(241,241,242,0.63)',
+    secondary_lighter: 'rgba(241,241,242,0.45)',
+
+    shadow: '0,0,0',
+    shadow_light: 'rgba(0,0,0,0.08)',
+
+    chat_badge: '#00AF9C',
+
+    drawer_background: '#0D1418',
+    drawer_section_background: '#131C21',
+
+    dropdown_background: '#2A2F32',
+
+    header_background: '#2A2F32',
+    header_icon: '#B1B3B5',
+    header_icon_active: '#292E30',
+
+    intro_background: '#262D31',
+    intro_primary: 'rgba(241,241,242,0.88)',
+    intro_secondary: '#A6A8AA',
+    intro_border: '#054740',
+
+    login_input_background: '#323739',
+    login_input_text: '#FFF',
+
+    message_sended_date_background: '#1E2A30',
+    message_sended_date_text: 'rgba(241,241,242,0.92)',
+    message_primary: 'rgba(241,241,242,0.95)',
+    message_secondary: 'rgba(241,241,242,0.63)',
+    message_footer_background: '#1E2428',
+    message_input_background: '#323739',
+    message_input: '#FFF',
+    message_outgoing_background: '#054740',
+    message_incoming_background: '#262D31',
+
+    modal_header: '#323739',
+    modal_image_background: '#1E2429',
+    modal_footer: '#191F23',
+
+    panel_header_background: '#323739',
+    panel_users_letter: '#009688',
+
+    popup_backdrop: 'rgba(9,14,17,0.85)',
+    popup_backdrop_avatar: 'rgba(18,28,33,0.97)',
+    popup_background: '#3B4042',
+
+    search_container_background: '#131C21',
+    search_input_background: '#323739',
+
+    scrollbar_thumb_background: '#394045',
+    scrollbar_track_background: '#131C21',
+
+    status_background: '#085373',
+    status_notification_icon: '#8EB2BE',
+    status_primary: 'rgba(241,241,242,0.96)',
+    status_secondary: 'rgba(241,241,242,0.75)',
   },
 };
 
