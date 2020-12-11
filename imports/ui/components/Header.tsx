@@ -14,12 +14,17 @@ const Header: React.FC<HeaderProps> = (props): JSX.Element => {
   const renderIcons = (): JSX.Element[] => {
     return props.icons.map((item: any, index: number) => {
       return (
-        <FontAwesomeIcon
-          key={index}
-          icon={['fas', item.icon]}
-          className={item.id !== 3 || !props.dropdownVisible ? 'icon' : 'icon--active'}
-          onClick={item.onClick}
-        />
+        <React.Fragment key={index}>
+          {item.id !== 3 || !props.dropdownVisible ? null : (
+            <div className="icon--active-overlay" />
+          )}
+          <FontAwesomeIcon
+            icon={['fas', item.icon]}
+            className="icon"
+            style={item.id === 3 && { marginLeft: '7px' }}
+            onClick={item.onClick}
+          />
+        </React.Fragment>
       );
     });
   };

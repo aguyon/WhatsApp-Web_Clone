@@ -1,17 +1,29 @@
-<h1 align="center">WhatsApp Web - Projet Personnel</h1>
-<h3 align="center">Clone de l'application WhatsApp</h3>
+<h1 align="center">WhatsApp Web - Personal Project</h1>
+<h3 align="center">Clone of WhatsApp application</h3>
 
-## Technos utilisées
+A full working React / Meteor application written in latest versions of:
 
 - [React](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
-- [styled-components](https://styled-components.com/)
-- [Metor](https://www.meteor.com/)
-- [mongoDB](https://www.mongodb.com/)
+- [Styled Components](https://styled-components.com/)
+- [Meteor](https://www.meteor.com/)
+- [MongoDB](https://www.mongodb.com/)
 
-## Enseignements
+## What I learned ?
 
-- Créer un Réseau Social avec système de messagerie instantanée, upload de photos, recherche d'utilisateurs, système d’authentification
-- Travailler avec Meteor, React et TypeScript
-- Implémenter une communication en temps réel grâce à Meteor
-- Gérer 2 thèmes différents grâce à styled-components
+- Create a Social Network with instant messaging system, image upload, user search, authentication system
+- Working with Meteor, React, and TypeScript
+- Implement real-time communication with Meteor
+- Manage 2 different themes with styled-components
+
+## Running locally
+
+Clone the project.
+
+Install dependencies:
+
+`npm install or yarn install`
+
+Start the project:
+
+`npm install or yarn start`

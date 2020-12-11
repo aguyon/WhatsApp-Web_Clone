@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { FABsProps } from '../components/FABs';
+
 const StyledFABs = styled.div`
   display: none;
   z-index: 200;
@@ -16,7 +18,7 @@ const StyledFABs = styled.div`
     right: 5.4rem;
   }
 
-  ${(props) =>
+  ${(props: FABsProps) =>
     props.fabsVisible &&
     css`
       display: flex;

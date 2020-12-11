@@ -28,18 +28,21 @@ const StyledHeader = styled.header`
     color: ${({ theme }) => theme.color.icon};
     font-size: 2rem;
     cursor: pointer;
+    z-index: 1;
   }
 
-  .icon--active {
+  .icon--active-overlay {
     color: ${({ theme }) => theme.color.icon};
+    position: absolute;
     font-size: 2rem;
     cursor: pointer;
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
     padding: 0.8rem;
-    margin-left: -5px;
+    margin-left: 105px;
     border-radius: 50%;
     background: ${({ theme }) => theme.color.header_icon_active};
+    z-index: 0;
   }
 
   .headerMsg--container {

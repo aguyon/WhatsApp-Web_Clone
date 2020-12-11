@@ -4,8 +4,8 @@ const StyledMessageImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 33rem;
-  height: 33rem;
+  max-width: 30rem;
+  max-height: 33rem;
   border-radius: 0.6rem;
   padding: 0.4rem;
   background: white;

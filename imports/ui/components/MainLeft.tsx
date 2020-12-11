@@ -14,10 +14,10 @@ import SearchBar from '../components/SearchBar';
 import ChatList from '../components/ChatList';
 import LeftSide from './LeftSide/LeftSide';
 import LeftSideHeader from './LeftSide/LeftSideHeader';
-import Form from './LeftSide/Form';
 import UsersList from './LeftSide/UsersList';
 import Dropdown from './Dropdown';
 import Settings from './LeftSide/Settings';
+import Profile from './LeftSide/Profile';
 
 interface MainLeftProps {
   // Props withTracker
@@ -143,17 +143,7 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
     return (
       <>
         <LeftSideHeader title="Profil" onLeftSideHeaderClose={toggleLeftSide} />
-        <div className="LS--avatar">
-          <Avatar big inLeftSide avatar_url={props.picture} />
-        </div>
-        <Form type="username" />
-        <div className="LS--desc">
-          <span>
-            Ce n'est pas votre nom d'utilisateur ou code pin. Ce nom sera visible auprès
-            de vos contacts WhatsApp.
-          </span>
-        </div>
-        <Form type="actu" />
+        <Profile picture={props.picture} />
       </>
     );
   };

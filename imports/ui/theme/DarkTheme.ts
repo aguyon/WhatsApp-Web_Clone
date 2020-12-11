@@ -42,7 +42,7 @@ const DarkTheme: object = {
 
     header_background: '#2A2F32',
     header_icon: '#B1B3B5',
-    header_icon_active: '#292E30',
+    header_icon_active: '#262A2D',
 
     intro_background: '#262D31',
     intro_primary: 'rgba(241,241,242,0.88)',

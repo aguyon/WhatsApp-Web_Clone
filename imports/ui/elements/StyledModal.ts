@@ -41,19 +41,20 @@ const StyledModal = styled.div`
     background: ${({ theme }) => theme.color.modal_image_background};
   }
 
-  .responsive-image {
+  .modal--body__image-container {
     position: relative;
-    max-width: 100%;
+    width: 100%;
   }
 
-  .responsive-image__image {
+  .modal--body__image {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    margin: auto;
+    max-width: 850px;
+    max-height: 580px;
   }
 
   .modal--body__fab {

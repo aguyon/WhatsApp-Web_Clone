@@ -13,15 +13,6 @@ interface ModalProps {
 }
 
 const Modal = (props: ModalProps) => {
-  const responsiveImage = (src: string, width: number, height: number) => {
-    return (
-      <div style={{ width }} className="responsive-image">
-        <div style={{ paddingBottom: (height / width) * 100 + '%' }} />
-        <img src={src} className="responsive-image__image" />
-      </div>
-    );
-  };
-
   return (
     <StyledModal>
       <div className="modal--header">
@@ -34,7 +25,9 @@ const Modal = (props: ModalProps) => {
         <span className="modal--header__title">Aperçu</span>
       </div>
       <div className="modal--body">
-        {responsiveImage(props.selectedImage, 529, 550)}
+        <div className="modal--body__image-container">
+          <img src={props.selectedImage} className="modal--body__image" />
+        </div>
         <div
           className="modal--body__fab"
           onClick={() => props.onUpload('', MessageType.IMAGE)}

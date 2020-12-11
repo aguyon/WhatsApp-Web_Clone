@@ -80,24 +80,28 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
 
     if (modalVisible) handleCloseModal();
 
-    Meteor.call('message.insert', message, (err, id) => {
+    Meteor.call('message.insert', message, (err: Error, id: string) => {
       if (err) console.log('error insert message');
       else {
         // console.log('res', id);
+        console.log('before', fileInput);
         uploadFile(fileInput.current, true);
+
+        // fileInput.current = null;
 
         Tracker.autorun(() => {
           const imageUrl = Session.get('wc--imageUrl');
 
           if (imageUrl && message.type === 'image') {
-            Meteor.call('message.update', id, imageUrl, (err, res) => {
+            Meteor.call('message.update', id, imageUrl, (err: Error, res: any) => {
               if (err) console.log('error update message', err);
-              // else console.log('ok', res);
+              else console.log('res', res);
             });
           }
         });
       }
     });
+    // fileInput = null;
   };
 
   const avatarClick = (): void => {

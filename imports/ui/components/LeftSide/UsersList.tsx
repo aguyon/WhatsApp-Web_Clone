@@ -10,10 +10,10 @@ import UserItem from './UserItem';
 
 interface UsersListProps {
   // Props withTracker
-  users: User[];
+  users?: User[];
 
   // Props MainLeft
-  onUserItemClick: () => void;
+  onUserItemClick: (id: string, username: string, picture: string) => void;
   searchedValue: string;
   searchedUsers: User[];
 }
@@ -65,7 +65,7 @@ const UsersList = (props: UsersListProps): JSX.Element => {
   return <StyledUsersList>{renderLetters()}</StyledUsersList>;
 };
 
-export default withTracker((props) => {
+export default withTracker((props: UsersListProps) => {
   return {
     users:
       props.searchedValue === ''
