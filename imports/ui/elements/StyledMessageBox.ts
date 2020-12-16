@@ -11,6 +11,7 @@ const StyledMessageBox = styled.div`
   padding: 1rem 7.4rem;
   overflow-y: auto;
   position: relative;
+  z-index: 0;
 
   ${(props) =>
     props.themeStorage === 'light'

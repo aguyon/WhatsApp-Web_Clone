@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledSettings = styled.div`
-  height: 100%;
+  height: 82%;
   color: ${({ theme }) => theme.color.primary_strong};
   cursor: pointer;
 

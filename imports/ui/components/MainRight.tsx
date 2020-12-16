@@ -8,7 +8,6 @@ import MessageView from './MessageView';
 import { Chat } from '../../api/models';
 
 interface MainRightProps {
-  theme: string;
   right: boolean;
   border: boolean;
   visibleMessage: boolean;
@@ -29,12 +28,7 @@ const MainRight = (props: MainRightProps): JSX.Element => {
           onMessageClick={props.onMessageClick}
         />
       ) : (
-        <RightImg
-          theme={props.theme}
-          right={props.right}
-          border={props.border}
-          messageText={messageText}
-        />
+        <RightImg right={props.right} border={props.border} messageText={messageText} />
       )}
     </StyledMainRight>
   );

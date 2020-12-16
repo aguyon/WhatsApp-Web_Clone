@@ -40,7 +40,7 @@ const StyledRightImg = styled.div`
     margin-bottom: 3rem;
   }
 
-  .rightImg--p {
+  .rightImg--primary-text {
     text-align: center;
     color: ${({ theme }) => theme.color.intro_secondary};
     font-size: 1.4rem;
@@ -54,6 +54,20 @@ const StyledRightImg = styled.div`
     height: 0.1rem;
     background: ${({ theme }) => theme.color.border_strong};
     margin-bottom: 0.1rem;
+  }
+
+  .rightImg--secondary-text {
+    text-align: center;
+    color: ${({ theme }) => theme.color.intro_secondary};
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-top: 3.4rem;
+    white-space: pre-wrap;
+  }
+
+  .rightImg--link {
+    color: ${({ theme }) => theme.color.button_secondary};
+    text-decoration: none;
   }
 `;
 

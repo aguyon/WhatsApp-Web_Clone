@@ -9,6 +9,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
+import { useTheme } from '../../../context/ThemeContext';
+
 import StyledSettings from '../../elements/StyledSettings';
 
 import Avatar from '../Avatar';
@@ -17,13 +19,14 @@ interface SettingsProps {
   avatarUrl: string;
   userInfos: { username: string; status: string };
   setSettingsVisible: Function;
-  toggleTheme: () => void;
 }
 
 const Settings = (props: SettingsProps): JSX.Element => {
+  const { toggleTheme } = useTheme();
+
   const settings: { icon: IconProp; title: string; onClick?: () => void }[] = [
     { icon: faBell, title: 'Notifications' },
-    { icon: faAdjust, title: 'Thème', onClick: () => props.toggleTheme() },
+    { icon: faAdjust, title: 'Thème', onClick: () => toggleTheme() },
     { icon: faExpand, title: `Fond d'écran de la discussion` },
     { icon: faBan, title: 'Contacts bloqués' },
     { icon: faQuestionCircle, title: 'Aide' },

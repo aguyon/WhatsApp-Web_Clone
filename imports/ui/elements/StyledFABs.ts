@@ -8,14 +8,14 @@ const StyledFABs = styled.div`
 
   @media screen and (min-width: 1441px) {
     position: absolute;
-    top: -0.5rem;
-    right: 5.6rem;
+    top: 5.5rem;
+    right: 5.55rem;
   }
 
   @media screen and (max-width: 1440px) {
     position: fixed;
     top: 5.5rem;
-    right: 5.4rem;
+    right: 5.6rem;
   }
 
   ${(props: FABsProps) =>

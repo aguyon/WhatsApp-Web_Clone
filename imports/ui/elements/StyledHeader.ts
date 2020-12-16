@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
   height: 3rem;
   background: ${({ theme }) => theme.color.header_background};
   padding: 1.5rem 1.6rem;
-  z-index: 1;
+  z-index: 2;
 
   .icons--left {
     display: flex;

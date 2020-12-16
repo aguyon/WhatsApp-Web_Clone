@@ -17,15 +17,16 @@ import Avatar from '../components/Avatar';
 import MessageBox from './MessageBox';
 import Footer from './Footer';
 import Modal from './Modal';
+import FABs from './FABs';
 
 interface MessageViewProps {
   // props withTracker
   message: Message[];
 
   // Props MainRight
-  onMessageClick: (messageId: string, type: string) => void;
   selectedChat: Chat;
   onAvatarClick: (otherId: string) => void;
+  onMessageClick: (messageId: string, type: string) => void;
 }
 
 const MessageView = (props: MessageViewProps): JSX.Element => {
@@ -84,7 +85,6 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
       if (err) console.log('error insert message');
       else {
         // console.log('res', id);
-        console.log('before', fileInput);
         uploadFile(fileInput.current, true);
 
         // fileInput.current = null;
@@ -101,7 +101,6 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
         });
       }
     });
-    // fileInput = null;
   };
 
   const avatarClick = (): void => {
@@ -117,6 +116,11 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
           <span className="headerMsg--title">{props.selectedChat.title}</span>
           <span className="headerMsg--subtitle">en ligne</span>
         </div>
+        <FABs
+          fabsVisible={fabsVisible}
+          onFABItemClick={handleInputClick}
+          onInputChange={handleInputChange}
+        />
       </Header>
       {modalVisible ? (
         <Modal
@@ -130,9 +134,9 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
             onMessageClick={props.onMessageClick}
             selectedChat={props.selectedChat}
             messages={props.message}
-            fabsVisible={fabsVisible}
-            onFABItemClick={handleInputClick}
-            onInputChange={handleInputChange}
+            // fabsVisible={fabsVisible}
+            // onFABItemClick={handleInputClick}
+            // onInputChange={handleInputChange}
           />
           <Footer onSend={handleSendMessage} />
         </React.Fragment>

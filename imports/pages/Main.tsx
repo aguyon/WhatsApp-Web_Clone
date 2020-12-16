@@ -23,10 +23,6 @@ interface MainProps {
   // Props withTracker
   loading: boolean;
   chats: Chat[];
-
-  // Props App
-  theme: string;
-  toggleTheme: () => void;
 }
 
 const initialBigOverlay = {
@@ -161,7 +157,6 @@ const Main = (props: MainProps) => {
         {!props.loading ? (
           <React.Fragment>
             <MainLeft
-              toggleTheme={props.toggleTheme}
               chats={props.chats}
               onChatClick={handleChatClick}
               selectedChat={selectedChat}
@@ -169,7 +164,6 @@ const Main = (props: MainProps) => {
             />
 
             <MainRight
-              theme={props.theme}
               right
               border
               visibleMessage={visibleMessage}

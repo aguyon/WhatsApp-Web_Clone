@@ -25,7 +25,6 @@ interface MainLeftProps {
   picture: string;
 
   // Props Main
-  toggleTheme: () => void;
   chats: Chat[];
   onChatClick: (id: string) => void;
   selectedChat: Chat;
@@ -135,7 +134,6 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
             avatarUrl={props.picture}
             userInfos={props.userInfos}
             setSettingsVisible={setSettingsVisible}
-            toggleTheme={props.toggleTheme}
           />
         </>
       );
