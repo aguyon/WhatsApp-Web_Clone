@@ -22,8 +22,8 @@ const RightImg: React.FC<RightImgProps> = (props): JSX.Element => {
           className="rightImg--image"
           src={
             themeMode === 'light'
-              ? './images/whatsapp-bg-light.jpg'
-              : './images/whatsapp-bg-dark.jpg'
+              ? './images/whatsapp-light.jpg'
+              : './images/whatsapp-dark.jpg'
           }
         />
         <h3 className="rightImg--title">Gardez votre téléphone connecté</h3>

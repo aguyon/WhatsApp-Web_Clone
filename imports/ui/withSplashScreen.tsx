@@ -32,8 +32,8 @@ const withSplashScreen = (WrappedComponent: React.FC) => (): JSX.Element => {
       <img
         src={
           themeMode === 'light'
-            ? './images/whatsapp-bg-light.jpg'
-            : './images/whatsapp-bg-dark.jpg'
+            ? './images/whatsapp-light.jpg'
+            : './images/whatsapp-dark.jpg'
         }
         alt="logo"
         className="loader--image"
