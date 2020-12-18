@@ -51,6 +51,7 @@ const Main = (props: MainProps) => {
     }
 
     const chat: Chat = _.find(props.chats, { _id: id });
+
     if (chat) setSelectedChat(chat);
     else {
       const newChat: Chat = ChatsCollection.findOne(id);

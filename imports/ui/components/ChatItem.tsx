@@ -15,7 +15,7 @@ export interface ChatItemProps {
   id?: string;
   title?: string;
   picture?: string;
-  lastMessage?: { content?: string; type: MessageType; createdAt?: Date };
+  lastMessage?: { content?: string; type?: MessageType; createdAt?: Date };
   participants?: string[];
   onChatClick?: (id: string) => void;
   active?: boolean;

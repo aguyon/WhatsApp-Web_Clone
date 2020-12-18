@@ -32,6 +32,12 @@ const StyledSearchBar = styled.div`
     margin-right: 1.5rem;
   }
 
+  .searchbar--icon-close {
+    color: ${({ theme }) => theme.color.icon};
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
   .searchbar--input {
     font-size: 1.5rem;
     font-weight: 400;

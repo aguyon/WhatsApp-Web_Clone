@@ -38,6 +38,7 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
   const [dropdownVisible, setDropdownVisible] = React.useState<boolean>(false);
   const [searchedValue, setSearchedValue] = React.useState<string>('');
   const [searchedUsers, setSearchedUsers] = React.useState<User[]>([]);
+  const [searchedChats, setSearchedChats] = React.useState<Chat[]>([]);
 
   let history = useHistory();
 
@@ -48,7 +49,6 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
   ];
 
   const menuItems: { item: string; onClick?: () => void }[] = [
-    { item: 'Nouveau groupe' },
     { item: 'Profil', onClick: () => toggleLeftSide() },
     { item: 'Paramètres', onClick: () => showSettings() },
     { item: 'Déconnexion', onClick: () => logout() },
@@ -106,10 +106,6 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
     );
   };
 
-  const handleChatSearch = (value: string) => {
-    return value;
-  };
-
   const renderLeftSide = (): JSX.Element => {
     if (usersListVisible) {
       return (
@@ -118,7 +114,12 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
             title="Nouvelle discussion"
             onLeftSideHeaderClose={toggleLeftSide}
           />
-          <SearchBar placeholder="Chercher des contacts" onSearch={handleUserSearch} />
+          <SearchBar
+            placeholder="Chercher des contacts"
+            searchedValue={searchedValue}
+            setSearchedValue={setSearchedValue}
+            onSearch={handleUserSearch}
+          />
           <UsersList
             onUserItemClick={userItemClick}
             searchedValue={searchedValue}
@@ -157,13 +158,23 @@ const MainLeft = (props: MainLeftProps): JSX.Element => {
           <Status />
           <SearchBar
             placeholder="Rechercher ou démarrer une nouvelle discussion"
-            onSearch={handleChatSearch}
+            searchedValue={searchedValue}
+            setSearchedValue={setSearchedValue}
+            onSearch={handleUserSearch}
           />
-          <ChatList
-            chats={props.chats}
-            onChatClick={props.onChatClick}
-            selectedChat={props.selectedChat}
-          />
+          {!searchedValue ? (
+            <ChatList
+              chats={props.chats}
+              onChatClick={props.onChatClick}
+              selectedChat={props.selectedChat}
+            />
+          ) : (
+            <UsersList
+              onUserItemClick={userItemClick}
+              searchedValue={searchedValue}
+              searchedUsers={searchedUsers}
+            />
+          )}
         </>
       ) : (
         <LeftSide>{renderLeftSide()}</LeftSide>
