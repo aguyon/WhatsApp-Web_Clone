@@ -3,7 +3,7 @@
 
 A full working React / Meteor application written in latest versions of:
 
-- [React](https://reactjs.org/){:target="_blank"}
+- [React](https://reactjs.org/){target="_blank"}
 - [Typescript](https://www.typescriptlang.org/)
 - [Styled Components](https://styled-components.com/)
 - [Meteor](https://www.meteor.com/)
