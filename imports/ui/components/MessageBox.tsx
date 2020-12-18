@@ -11,16 +11,12 @@ import { updateBadges } from '../../api/helpers';
 import StyledMessageBox from '../elements/StyledMessageBox';
 import Day from './Day';
 import MessageText from './MessageText';
-import FABs from './FABs';
 import MessageImage from './MessageImage';
 
 interface MessageBoxProps {
   onMessageClick: (messageId: string, type: string) => void;
   selectedChat: Chat;
   messages: Message[];
-  // fabsVisible: boolean;
-  // onFABItemClick: () => void;
-  // onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const MessageBox = (props: MessageBoxProps): JSX.Element => {
@@ -123,11 +119,6 @@ const MessageBox = (props: MessageBoxProps): JSX.Element => {
 
   return (
     <StyledMessageBox themeStorage={theme}>
-      {/* <FABs
-        fabsVisible={props.fabsVisible}
-        onFABItemClick={props.onFABItemClick}
-        onInputChange={props.onInputChange}
-      /> */}
       <FlipMove style={{ zIndex: 150 }}>{renderContent()}</FlipMove>
       <div ref={(el: HTMLDivElement) => (messagesEnd = el)} />
       <div className={theme === 'light' ? '' : 'message--overlay'} />

@@ -14,7 +14,9 @@ A full working React / Meteor application written in latest versions of:
 - Create a Social Network with instant messaging system, image upload, user search, authentication system
 - Working with Meteor, React, and TypeScript
 - Implement real-time communication with Meteor
-- Manage 2 different themes with styled-components
+- Implement Higher Order Component (HOC) for the Splash Screen
+- Protect the Main Route and Redirect if user is not login
+- Manage 2 different themes with Context API and styled-components
 
 ## Running locally
 

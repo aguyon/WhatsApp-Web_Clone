@@ -134,9 +134,6 @@ const MessageView = (props: MessageViewProps): JSX.Element => {
             onMessageClick={props.onMessageClick}
             selectedChat={props.selectedChat}
             messages={props.message}
-            // fabsVisible={fabsVisible}
-            // onFABItemClick={handleInputClick}
-            // onInputChange={handleInputChange}
           />
           <Footer onSend={handleSendMessage} />
         </React.Fragment>
