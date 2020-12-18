@@ -16,7 +16,7 @@ A full working React / Meteor application written in latest versions of:
 - Implement real-time communication with Meteor
 - Implement Higher Order Component (HOC) for the Splash Screen
 - Protect the Main Route and Redirect if user is not login
-- Manage 2 different themes with Context API and styled-components
+- Manage 2 differents themes with Context API and styled-components
 
 ## Running locally
 
@@ -28,4 +28,8 @@ Install dependencies:
 
 Start the project:
 
-`npm install or yarn start`
+`npm start or yarn start`
+
+To see the database:
+
+`meteor mongo`
