@@ -28,4 +28,8 @@ Install dependencies:
 
 Start the project:
 
-`npm install or yarn start`
+`npm start or yarn start`
+
+To see the database:
+
+`meteor mongo`
