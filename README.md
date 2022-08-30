@@ -1,6 +1,6 @@
 <h1 align="center">WhatsApp Web - Personal Project</h1>
 <h3 align="center">Clone of WhatsApp application</h3>
-<h3 align="center">[Projet Overview](https://vimeo.com/531728704/)</h3
+<h5 align="center">[Projet Overview](https://vimeo.com/531728704/)</h5>
 
 A full working React / Meteor application written in latest versions of:
 
